@@ -38,3 +38,25 @@ C:\myDoc\school\school\obj\Debug\net5.0-windows\school.dll
 C:\myDoc\school\school\obj\Debug\net5.0-windows\ref\school.dll
 C:\myDoc\school\school\obj\Debug\net5.0-windows\school.pdb
 C:\myDoc\school\school\obj\Debug\net5.0-windows\school.genruntimeconfig.cache
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.csproj.AssemblyReference.cache
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.admin.resources
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.Form1.resources
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\CustomControls.RJControls.RJTextBox.resources
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.csproj.GenerateResource.cache
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.GeneratedMSBuildEditorConfig.editorconfig
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.AssemblyInfoInputs.cache
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.AssemblyInfo.cs
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.csproj.CoreCompileInputs.cache
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.dll
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\ref\school.dll
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.pdb
+C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\school.exe
+C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\school.deps.json
+C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\school.runtimeconfig.json
+C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\school.runtimeconfig.dev.json
+C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\school.dll
+C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\ref\school.dll
+C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\school.pdb
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.Properties.Resources.resources
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.genruntimeconfig.cache
+C:\myDoc\school — копия\school\obj\Debug\net5.0-windows\school.add_resationships.resources
