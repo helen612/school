@@ -48,16 +48,19 @@ namespace school
             this.label3.Size = new System.Drawing.Size(179, 37);
             this.label3.TabIndex = 2;
             this.label3.Text = "Авторизация";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // ErrEnter
             // 
             this.ErrEnter.AutoSize = true;
             this.ErrEnter.BackColor = System.Drawing.SystemColors.Control;
+            this.ErrEnter.ForeColor = System.Drawing.Color.Red;
             this.ErrEnter.Location = new System.Drawing.Point(13, 203);
             this.ErrEnter.Name = "ErrEnter";
-            this.ErrEnter.Size = new System.Drawing.Size(87, 15);
+            this.ErrEnter.Size = new System.Drawing.Size(261, 15);
             this.ErrEnter.TabIndex = 7;
-            this.ErrEnter.Text = "Ошибка входа";
+            this.ErrEnter.Text = "Ошибка входа. Проверьте введенные данные!";
+            this.ErrEnter.Visible = false;
             // 
             // login_tb
             // 
@@ -80,6 +83,7 @@ namespace school
             this.login_tb.TabIndex = 8;
             this.login_tb.Texts = "";
             this.login_tb.UnderlinedStyle = false;
+            this.login_tb._TextChanged += new System.EventHandler(this.login_tb__TextChanged);
             // 
             // password_tb
             // 
@@ -95,13 +99,14 @@ namespace school
             this.password_tb.Multiline = false;
             this.password_tb.Name = "password_tb";
             this.password_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.password_tb.PasswordChar = false;
+            this.password_tb.PasswordChar = true;
             this.password_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.password_tb.PlaceholderText = "Пароль";
             this.password_tb.Size = new System.Drawing.Size(230, 39);
             this.password_tb.TabIndex = 9;
             this.password_tb.Texts = "";
             this.password_tb.UnderlinedStyle = false;
+            this.password_tb._TextChanged += new System.EventHandler(this.password_tb__TextChanged);
             // 
             // enter_b
             // 
@@ -136,6 +141,7 @@ namespace school
             this.showPsw_chb.Size = new System.Drawing.Size(45, 22);
             this.showPsw_chb.TabIndex = 11;
             this.showPsw_chb.UseVisualStyleBackColor = true;
+            this.showPsw_chb.CheckedChanged += new System.EventHandler(this.showPsw_chb_CheckedChanged);
             // 
             // Form1
             // 

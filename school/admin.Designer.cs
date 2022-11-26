@@ -34,12 +34,14 @@ namespace school
             this.students = new System.Windows.Forms.TabPage();
             this.data_tab = new System.Windows.Forms.TabControl();
             this.filtr_tab = new System.Windows.Forms.TabPage();
+            this.students_SOP_chb = new System.Windows.Forms.CheckBox();
+            this.students_starosta_chb = new System.Windows.Forms.CheckBox();
             this.filter_b = new CustomControls.RJControls.RJButton();
             this.rjToggleButton2 = new CustomControls.RJControls.RJToggleButton();
             this.rjToggleButton1 = new CustomControls.RJControls.RJToggleButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.student_adress_tb = new CustomControls.RJControls.RJTextBox();
+            this.student_fio_tb = new CustomControls.RJControls.RJTextBox();
             this.student_classs_tb = new CustomControls.RJControls.RJTextBox();
             this.students_id_tb = new CustomControls.RJControls.RJTextBox();
             this.dop_tab = new System.Windows.Forms.TabPage();
@@ -51,7 +53,7 @@ namespace school
             this.bed_marks_p_b = new CustomControls.RJControls.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Ctrl = new System.Windows.Forms.GroupBox();
+            this.s_gb = new System.Windows.Forms.GroupBox();
             this.students_del_b = new CustomControls.RJControls.RJButton();
             this.students_edit_b = new CustomControls.RJControls.RJButton();
             this.student_add_b = new CustomControls.RJControls.RJButton();
@@ -71,12 +73,12 @@ namespace school
             this.enter_rel_b = new CustomControls.RJControls.RJButton();
             this.parCom_b = new CustomControls.RJControls.RJButton();
             this.large_famile_b = new CustomControls.RJControls.RJButton();
-            this.Ctrl_Par = new System.Windows.Forms.GroupBox();
+            this.p_gp = new System.Windows.Forms.GroupBox();
             this.purrents_delete_b = new CustomControls.RJControls.RJButton();
             this.parrents_edit_b = new CustomControls.RJControls.RJButton();
             this.parrents_add_b = new CustomControls.RJControls.RJButton();
             this.Parrent_dgv = new System.Windows.Forms.DataGridView();
-            this.Сотрудники = new System.Windows.Forms.TabPage();
+            this.employers = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.empl_date_filter = new System.Windows.Forms.CheckBox();
@@ -95,7 +97,7 @@ namespace school
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.more_one_stavka_b = new CustomControls.RJControls.RJButton();
             this.much_ex_b = new CustomControls.RJControls.RJButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.e_gp = new System.Windows.Forms.GroupBox();
             this.employers_del_b = new CustomControls.RJControls.RJButton();
             this.employers_edit_b = new CustomControls.RJControls.RJButton();
             this.employers_add_b = new CustomControls.RJControls.RJButton();
@@ -111,13 +113,14 @@ namespace school
             this.tt_day_tb = new CustomControls.RJControls.RJTextBox();
             this.tt_class_tb = new CustomControls.RJControls.RJTextBox();
             this.tt_id_tb = new CustomControls.RJControls.RJTextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tt_gb = new System.Windows.Forms.GroupBox();
             this.tt_del_b = new CustomControls.RJControls.RJButton();
             this.tt_edit_b = new CustomControls.RJControls.RJButton();
             this.tt_add_b = new CustomControls.RJControls.RJButton();
             this.tt_dgv = new System.Windows.Forms.DataGridView();
             this.Journal = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.j_class_f_tb = new CustomControls.RJControls.RJTextBox();
             this.j_to_chb = new System.Windows.Forms.CheckBox();
             this.j_from_chb = new System.Windows.Forms.CheckBox();
             this.to = new school.RJDatePicker();
@@ -129,7 +132,7 @@ namespace school
             this.j_people_tb = new CustomControls.RJControls.RJTextBox();
             this.j_mark_from_tb = new CustomControls.RJControls.RJTextBox();
             this.j_id_tb = new CustomControls.RJControls.RJTextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.j_gb = new System.Windows.Forms.GroupBox();
             this.j_del_b = new CustomControls.RJControls.RJButton();
             this.j_edit_b = new CustomControls.RJControls.RJButton();
             this.j_add_b = new CustomControls.RJControls.RJButton();
@@ -149,12 +152,14 @@ namespace school
             this.e_id_tb = new CustomControls.RJControls.RJTextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.e_get_members_b = new CustomControls.RJControls.RJButton();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.ev_gp = new System.Windows.Forms.GroupBox();
             this.e_del_b = new CustomControls.RJControls.RJButton();
             this.e_edit_b = new CustomControls.RJControls.RJButton();
             this.e_add_b = new CustomControls.RJControls.RJButton();
             this.e_dgv = new System.Windows.Forms.DataGridView();
             this.admin_tab = new System.Windows.Forms.TabPage();
+            this.B_runSqlReauest = new CustomControls.RJControls.RJButton();
+            this.tb_SQLrequest = new CustomControls.RJControls.RJTextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.admin_clear_b = new CustomControls.RJControls.RJButton();
             this.choose_table_cb = new System.Windows.Forms.ComboBox();
@@ -162,8 +167,6 @@ namespace school
             this.admin_edit_b = new CustomControls.RJControls.RJButton();
             this.admin_add_b = new CustomControls.RJControls.RJButton();
             this.admin_dgv = new System.Windows.Forms.DataGridView();
-            this.students_starosta_chb = new System.Windows.Forms.CheckBox();
-            this.students_SOP_chb = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.students_dgv)).BeginInit();
             this._tab.SuspendLayout();
             this.students.SuspendLayout();
@@ -171,32 +174,32 @@ namespace school
             this.filtr_tab.SuspendLayout();
             this.dop_tab.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.Ctrl.SuspendLayout();
+            this.s_gb.SuspendLayout();
             this.parrents.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.Ctrl_Par.SuspendLayout();
+            this.p_gp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Parrent_dgv)).BeginInit();
-            this.Сотрудники.SuspendLayout();
+            this.employers.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.e_gp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.timeTable.SuspendLayout();
             this.filter_timeTAble_gp.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.tt_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tt_dgv)).BeginInit();
             this.Journal.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.j_gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.Events.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.ev_gp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.e_dgv)).BeginInit();
             this.admin_tab.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -217,7 +220,7 @@ namespace school
             // 
             this._tab.Controls.Add(this.students);
             this._tab.Controls.Add(this.parrents);
-            this._tab.Controls.Add(this.Сотрудники);
+            this._tab.Controls.Add(this.employers);
             this._tab.Controls.Add(this.timeTable);
             this._tab.Controls.Add(this.Journal);
             this._tab.Controls.Add(this.Events);
@@ -228,11 +231,12 @@ namespace school
             this._tab.SelectedIndex = 0;
             this._tab.Size = new System.Drawing.Size(791, 467);
             this._tab.TabIndex = 3;
+            this._tab.SelectedIndexChanged += new System.EventHandler(this._tab_SelectedIndexChanged);
             // 
             // students
             // 
             this.students.Controls.Add(this.data_tab);
-            this.students.Controls.Add(this.Ctrl);
+            this.students.Controls.Add(this.s_gb);
             this.students.Controls.Add(this.students_dgv);
             this.students.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.students.Location = new System.Drawing.Point(4, 24);
@@ -263,7 +267,7 @@ namespace school
             this.filtr_tab.Controls.Add(this.rjToggleButton1);
             this.filtr_tab.Controls.Add(this.label4);
             this.filtr_tab.Controls.Add(this.label3);
-            this.filtr_tab.Controls.Add(this.student_adress_tb);
+            this.filtr_tab.Controls.Add(this.student_fio_tb);
             this.filtr_tab.Controls.Add(this.student_classs_tb);
             this.filtr_tab.Controls.Add(this.students_id_tb);
             this.filtr_tab.Location = new System.Drawing.Point(4, 24);
@@ -272,6 +276,24 @@ namespace school
             this.filtr_tab.Size = new System.Drawing.Size(192, 248);
             this.filtr_tab.TabIndex = 0;
             this.filtr_tab.Text = "Фильтр";
+            // 
+            // students_SOP_chb
+            // 
+            this.students_SOP_chb.AutoSize = true;
+            this.students_SOP_chb.Location = new System.Drawing.Point(7, 169);
+            this.students_SOP_chb.Name = "students_SOP_chb";
+            this.students_SOP_chb.Size = new System.Drawing.Size(15, 14);
+            this.students_SOP_chb.TabIndex = 19;
+            this.students_SOP_chb.UseVisualStyleBackColor = true;
+            // 
+            // students_starosta_chb
+            // 
+            this.students_starosta_chb.AutoSize = true;
+            this.students_starosta_chb.Location = new System.Drawing.Point(7, 138);
+            this.students_starosta_chb.Name = "students_starosta_chb";
+            this.students_starosta_chb.Size = new System.Drawing.Size(15, 14);
+            this.students_starosta_chb.TabIndex = 18;
+            this.students_starosta_chb.UseVisualStyleBackColor = true;
             // 
             // filter_b
             // 
@@ -291,6 +313,7 @@ namespace school
             this.filter_b.Text = "Выполнить";
             this.filter_b.TextColor = System.Drawing.Color.White;
             this.filter_b.UseVisualStyleBackColor = false;
+            this.filter_b.Click += new System.EventHandler(this.fillThePeoples);
             // 
             // rjToggleButton2
             // 
@@ -343,27 +366,27 @@ namespace school
             this.label3.Text = "Староста";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // student_adress_tb
+            // student_fio_tb
             // 
-            this.student_adress_tb.BackColor = System.Drawing.SystemColors.Window;
-            this.student_adress_tb.BorderColor = System.Drawing.Color.Green;
-            this.student_adress_tb.BorderFocusColor = System.Drawing.Color.Lime;
-            this.student_adress_tb.BorderRadius = 0;
-            this.student_adress_tb.BorderSize = 2;
-            this.student_adress_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.student_adress_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.student_adress_tb.Location = new System.Drawing.Point(7, 85);
-            this.student_adress_tb.Margin = new System.Windows.Forms.Padding(4);
-            this.student_adress_tb.Multiline = false;
-            this.student_adress_tb.Name = "student_adress_tb";
-            this.student_adress_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.student_adress_tb.PasswordChar = false;
-            this.student_adress_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.student_adress_tb.PlaceholderText = "Адрес";
-            this.student_adress_tb.Size = new System.Drawing.Size(178, 31);
-            this.student_adress_tb.TabIndex = 5;
-            this.student_adress_tb.Texts = "";
-            this.student_adress_tb.UnderlinedStyle = false;
+            this.student_fio_tb.BackColor = System.Drawing.SystemColors.Window;
+            this.student_fio_tb.BorderColor = System.Drawing.Color.Green;
+            this.student_fio_tb.BorderFocusColor = System.Drawing.Color.Lime;
+            this.student_fio_tb.BorderRadius = 0;
+            this.student_fio_tb.BorderSize = 2;
+            this.student_fio_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.student_fio_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.student_fio_tb.Location = new System.Drawing.Point(7, 85);
+            this.student_fio_tb.Margin = new System.Windows.Forms.Padding(4);
+            this.student_fio_tb.Multiline = false;
+            this.student_fio_tb.Name = "student_fio_tb";
+            this.student_fio_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.student_fio_tb.PasswordChar = false;
+            this.student_fio_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.student_fio_tb.PlaceholderText = "Фамилия/Имя/Отчество";
+            this.student_fio_tb.Size = new System.Drawing.Size(178, 31);
+            this.student_fio_tb.TabIndex = 5;
+            this.student_fio_tb.Texts = "";
+            this.student_fio_tb.UnderlinedStyle = false;
             // 
             // student_classs_tb
             // 
@@ -536,17 +559,17 @@ namespace school
             this.label2.TabIndex = 14;
             this.label2.Text = "Заканчивая по:";
             // 
-            // Ctrl
+            // s_gb
             // 
-            this.Ctrl.Controls.Add(this.students_del_b);
-            this.Ctrl.Controls.Add(this.students_edit_b);
-            this.Ctrl.Controls.Add(this.student_add_b);
-            this.Ctrl.Location = new System.Drawing.Point(577, 7);
-            this.Ctrl.Name = "Ctrl";
-            this.Ctrl.Size = new System.Drawing.Size(200, 146);
-            this.Ctrl.TabIndex = 1;
-            this.Ctrl.TabStop = false;
-            this.Ctrl.Text = "Управление";
+            this.s_gb.Controls.Add(this.students_del_b);
+            this.s_gb.Controls.Add(this.students_edit_b);
+            this.s_gb.Controls.Add(this.student_add_b);
+            this.s_gb.Location = new System.Drawing.Point(577, 7);
+            this.s_gb.Name = "s_gb";
+            this.s_gb.Size = new System.Drawing.Size(200, 146);
+            this.s_gb.TabIndex = 1;
+            this.s_gb.TabStop = false;
+            this.s_gb.Text = "Управление";
             // 
             // students_del_b
             // 
@@ -608,7 +631,7 @@ namespace school
             // parrents
             // 
             this.parrents.Controls.Add(this.tabControl1);
-            this.parrents.Controls.Add(this.Ctrl_Par);
+            this.parrents.Controls.Add(this.p_gp);
             this.parrents.Controls.Add(this.Parrent_dgv);
             this.parrents.Location = new System.Drawing.Point(4, 24);
             this.parrents.Name = "parrents";
@@ -881,17 +904,17 @@ namespace school
             this.large_famile_b.TextColor = System.Drawing.Color.White;
             this.large_famile_b.UseVisualStyleBackColor = false;
             // 
-            // Ctrl_Par
+            // p_gp
             // 
-            this.Ctrl_Par.Controls.Add(this.purrents_delete_b);
-            this.Ctrl_Par.Controls.Add(this.parrents_edit_b);
-            this.Ctrl_Par.Controls.Add(this.parrents_add_b);
-            this.Ctrl_Par.Location = new System.Drawing.Point(576, 6);
-            this.Ctrl_Par.Name = "Ctrl_Par";
-            this.Ctrl_Par.Size = new System.Drawing.Size(200, 146);
-            this.Ctrl_Par.TabIndex = 2;
-            this.Ctrl_Par.TabStop = false;
-            this.Ctrl_Par.Text = "Управление";
+            this.p_gp.Controls.Add(this.purrents_delete_b);
+            this.p_gp.Controls.Add(this.parrents_edit_b);
+            this.p_gp.Controls.Add(this.parrents_add_b);
+            this.p_gp.Location = new System.Drawing.Point(576, 6);
+            this.p_gp.Name = "p_gp";
+            this.p_gp.Size = new System.Drawing.Size(200, 146);
+            this.p_gp.TabIndex = 2;
+            this.p_gp.TabStop = false;
+            this.p_gp.Text = "Управление";
             // 
             // purrents_delete_b
             // 
@@ -960,17 +983,17 @@ namespace school
             this.Parrent_dgv.Size = new System.Drawing.Size(570, 432);
             this.Parrent_dgv.TabIndex = 1;
             // 
-            // Сотрудники
+            // employers
             // 
-            this.Сотрудники.Controls.Add(this.tabControl2);
-            this.Сотрудники.Controls.Add(this.groupBox2);
-            this.Сотрудники.Controls.Add(this.dataGridView1);
-            this.Сотрудники.Location = new System.Drawing.Point(4, 24);
-            this.Сотрудники.Name = "Сотрудники";
-            this.Сотрудники.Size = new System.Drawing.Size(783, 439);
-            this.Сотрудники.TabIndex = 2;
-            this.Сотрудники.Text = "Сотрудники";
-            this.Сотрудники.UseVisualStyleBackColor = true;
+            this.employers.Controls.Add(this.tabControl2);
+            this.employers.Controls.Add(this.e_gp);
+            this.employers.Controls.Add(this.dataGridView1);
+            this.employers.Location = new System.Drawing.Point(4, 24);
+            this.employers.Name = "employers";
+            this.employers.Size = new System.Drawing.Size(783, 439);
+            this.employers.TabIndex = 2;
+            this.employers.Text = "Сотрудники";
+            this.employers.UseVisualStyleBackColor = true;
             // 
             // tabControl2
             // 
@@ -1246,17 +1269,17 @@ namespace school
             this.much_ex_b.TextColor = System.Drawing.Color.White;
             this.much_ex_b.UseVisualStyleBackColor = false;
             // 
-            // groupBox2
+            // e_gp
             // 
-            this.groupBox2.Controls.Add(this.employers_del_b);
-            this.groupBox2.Controls.Add(this.employers_edit_b);
-            this.groupBox2.Controls.Add(this.employers_add_b);
-            this.groupBox2.Location = new System.Drawing.Point(576, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 146);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Управление";
+            this.e_gp.Controls.Add(this.employers_del_b);
+            this.e_gp.Controls.Add(this.employers_edit_b);
+            this.e_gp.Controls.Add(this.employers_add_b);
+            this.e_gp.Location = new System.Drawing.Point(576, 3);
+            this.e_gp.Name = "e_gp";
+            this.e_gp.Size = new System.Drawing.Size(200, 146);
+            this.e_gp.TabIndex = 3;
+            this.e_gp.TabStop = false;
+            this.e_gp.Text = "Управление";
             // 
             // employers_del_b
             // 
@@ -1328,7 +1351,7 @@ namespace school
             // timeTable
             // 
             this.timeTable.Controls.Add(this.filter_timeTAble_gp);
-            this.timeTable.Controls.Add(this.groupBox3);
+            this.timeTable.Controls.Add(this.tt_gb);
             this.timeTable.Controls.Add(this.tt_dgv);
             this.timeTable.Location = new System.Drawing.Point(4, 24);
             this.timeTable.Name = "timeTable";
@@ -1550,17 +1573,17 @@ namespace school
             this.tt_id_tb.Texts = "";
             this.tt_id_tb.UnderlinedStyle = false;
             // 
-            // groupBox3
+            // tt_gb
             // 
-            this.groupBox3.Controls.Add(this.tt_del_b);
-            this.groupBox3.Controls.Add(this.tt_edit_b);
-            this.groupBox3.Controls.Add(this.tt_add_b);
-            this.groupBox3.Location = new System.Drawing.Point(576, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 146);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Управление";
+            this.tt_gb.Controls.Add(this.tt_del_b);
+            this.tt_gb.Controls.Add(this.tt_edit_b);
+            this.tt_gb.Controls.Add(this.tt_add_b);
+            this.tt_gb.Location = new System.Drawing.Point(576, 3);
+            this.tt_gb.Name = "tt_gb";
+            this.tt_gb.Size = new System.Drawing.Size(200, 146);
+            this.tt_gb.TabIndex = 4;
+            this.tt_gb.TabStop = false;
+            this.tt_gb.Text = "Управление";
             // 
             // tt_del_b
             // 
@@ -1632,7 +1655,7 @@ namespace school
             // Journal
             // 
             this.Journal.Controls.Add(this.groupBox5);
-            this.Journal.Controls.Add(this.groupBox4);
+            this.Journal.Controls.Add(this.j_gb);
             this.Journal.Controls.Add(this.dataGridView3);
             this.Journal.Location = new System.Drawing.Point(4, 24);
             this.Journal.Name = "Journal";
@@ -1643,6 +1666,7 @@ namespace school
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.j_class_f_tb);
             this.groupBox5.Controls.Add(this.j_to_chb);
             this.groupBox5.Controls.Add(this.j_from_chb);
             this.groupBox5.Controls.Add(this.to);
@@ -1660,6 +1684,28 @@ namespace school
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Фильтр";
+            // 
+            // j_class_f_tb
+            // 
+            this.j_class_f_tb.BackColor = System.Drawing.SystemColors.Window;
+            this.j_class_f_tb.BorderColor = System.Drawing.Color.Green;
+            this.j_class_f_tb.BorderFocusColor = System.Drawing.Color.Lime;
+            this.j_class_f_tb.BorderRadius = 0;
+            this.j_class_f_tb.BorderSize = 2;
+            this.j_class_f_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.j_class_f_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.j_class_f_tb.Location = new System.Drawing.Point(112, 23);
+            this.j_class_f_tb.Margin = new System.Windows.Forms.Padding(4);
+            this.j_class_f_tb.Multiline = false;
+            this.j_class_f_tb.Name = "j_class_f_tb";
+            this.j_class_f_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.j_class_f_tb.PasswordChar = false;
+            this.j_class_f_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.j_class_f_tb.PlaceholderText = "Класс";
+            this.j_class_f_tb.Size = new System.Drawing.Size(80, 28);
+            this.j_class_f_tb.TabIndex = 32;
+            this.j_class_f_tb.Texts = "";
+            this.j_class_f_tb.UnderlinedStyle = false;
             // 
             // j_to_chb
             // 
@@ -1854,22 +1900,22 @@ namespace school
             this.j_id_tb.PasswordChar = false;
             this.j_id_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.j_id_tb.PlaceholderText = "Id";
-            this.j_id_tb.Size = new System.Drawing.Size(185, 28);
+            this.j_id_tb.Size = new System.Drawing.Size(80, 28);
             this.j_id_tb.TabIndex = 19;
             this.j_id_tb.Texts = "";
             this.j_id_tb.UnderlinedStyle = false;
             // 
-            // groupBox4
+            // j_gb
             // 
-            this.groupBox4.Controls.Add(this.j_del_b);
-            this.groupBox4.Controls.Add(this.j_edit_b);
-            this.groupBox4.Controls.Add(this.j_add_b);
-            this.groupBox4.Location = new System.Drawing.Point(576, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 146);
-            this.groupBox4.TabIndex = 5;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Управление";
+            this.j_gb.Controls.Add(this.j_del_b);
+            this.j_gb.Controls.Add(this.j_edit_b);
+            this.j_gb.Controls.Add(this.j_add_b);
+            this.j_gb.Location = new System.Drawing.Point(576, 3);
+            this.j_gb.Name = "j_gb";
+            this.j_gb.Size = new System.Drawing.Size(200, 146);
+            this.j_gb.TabIndex = 5;
+            this.j_gb.TabStop = false;
+            this.j_gb.Text = "Управление";
             // 
             // j_del_b
             // 
@@ -1941,7 +1987,7 @@ namespace school
             // Events
             // 
             this.Events.Controls.Add(this.tabControl3);
-            this.Events.Controls.Add(this.groupBox6);
+            this.Events.Controls.Add(this.ev_gp);
             this.Events.Controls.Add(this.e_dgv);
             this.Events.Location = new System.Drawing.Point(4, 24);
             this.Events.Name = "Events";
@@ -2186,17 +2232,17 @@ namespace school
             this.e_get_members_b.TextColor = System.Drawing.Color.White;
             this.e_get_members_b.UseVisualStyleBackColor = false;
             // 
-            // groupBox6
+            // ev_gp
             // 
-            this.groupBox6.Controls.Add(this.e_del_b);
-            this.groupBox6.Controls.Add(this.e_edit_b);
-            this.groupBox6.Controls.Add(this.e_add_b);
-            this.groupBox6.Location = new System.Drawing.Point(576, 3);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(200, 146);
-            this.groupBox6.TabIndex = 6;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Управление";
+            this.ev_gp.Controls.Add(this.e_del_b);
+            this.ev_gp.Controls.Add(this.e_edit_b);
+            this.ev_gp.Controls.Add(this.e_add_b);
+            this.ev_gp.Location = new System.Drawing.Point(576, 3);
+            this.ev_gp.Name = "ev_gp";
+            this.ev_gp.Size = new System.Drawing.Size(200, 146);
+            this.ev_gp.TabIndex = 6;
+            this.ev_gp.TabStop = false;
+            this.ev_gp.Text = "Управление";
             // 
             // e_del_b
             // 
@@ -2267,6 +2313,8 @@ namespace school
             // 
             // admin_tab
             // 
+            this.admin_tab.Controls.Add(this.B_runSqlReauest);
+            this.admin_tab.Controls.Add(this.tb_SQLrequest);
             this.admin_tab.Controls.Add(this.groupBox7);
             this.admin_tab.Controls.Add(this.admin_dgv);
             this.admin_tab.Location = new System.Drawing.Point(4, 24);
@@ -2275,6 +2323,48 @@ namespace school
             this.admin_tab.TabIndex = 6;
             this.admin_tab.Text = "Панель администратора";
             this.admin_tab.UseVisualStyleBackColor = true;
+            // 
+            // B_runSqlReauest
+            // 
+            this.B_runSqlReauest.BackColor = System.Drawing.Color.Green;
+            this.B_runSqlReauest.BackgroundColor = System.Drawing.Color.Green;
+            this.B_runSqlReauest.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.B_runSqlReauest.BorderRadius = 10;
+            this.B_runSqlReauest.BorderSize = 0;
+            this.B_runSqlReauest.FlatAppearance.BorderSize = 0;
+            this.B_runSqlReauest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B_runSqlReauest.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.B_runSqlReauest.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.B_runSqlReauest.Location = new System.Drawing.Point(582, 55);
+            this.B_runSqlReauest.Name = "B_runSqlReauest";
+            this.B_runSqlReauest.Size = new System.Drawing.Size(188, 34);
+            this.B_runSqlReauest.TabIndex = 14;
+            this.B_runSqlReauest.Text = "Выполнить";
+            this.B_runSqlReauest.TextColor = System.Drawing.Color.WhiteSmoke;
+            this.B_runSqlReauest.UseVisualStyleBackColor = false;
+            this.B_runSqlReauest.Click += new System.EventHandler(this.B_runSqlReauest_Click);
+            // 
+            // tb_SQLrequest
+            // 
+            this.tb_SQLrequest.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_SQLrequest.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tb_SQLrequest.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tb_SQLrequest.BorderRadius = 0;
+            this.tb_SQLrequest.BorderSize = 2;
+            this.tb_SQLrequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_SQLrequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_SQLrequest.Location = new System.Drawing.Point(582, 17);
+            this.tb_SQLrequest.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_SQLrequest.Multiline = false;
+            this.tb_SQLrequest.Name = "tb_SQLrequest";
+            this.tb_SQLrequest.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tb_SQLrequest.PasswordChar = false;
+            this.tb_SQLrequest.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tb_SQLrequest.PlaceholderText = "SQL запрос";
+            this.tb_SQLrequest.Size = new System.Drawing.Size(188, 31);
+            this.tb_SQLrequest.TabIndex = 8;
+            this.tb_SQLrequest.Texts = "";
+            this.tb_SQLrequest.UnderlinedStyle = false;
             // 
             // groupBox7
             // 
@@ -2337,6 +2427,7 @@ namespace school
             this.choose_table_cb.Name = "choose_table_cb";
             this.choose_table_cb.Size = new System.Drawing.Size(188, 33);
             this.choose_table_cb.TabIndex = 12;
+            this.choose_table_cb.SelectedIndexChanged += new System.EventHandler(this.choose_table_cb_SelectedIndexChanged);
             // 
             // admin_del_b
             // 
@@ -2406,24 +2497,6 @@ namespace school
             this.admin_dgv.Size = new System.Drawing.Size(570, 439);
             this.admin_dgv.TabIndex = 2;
             // 
-            // students_starosta_chb
-            // 
-            this.students_starosta_chb.AutoSize = true;
-            this.students_starosta_chb.Location = new System.Drawing.Point(7, 138);
-            this.students_starosta_chb.Name = "students_starosta_chb";
-            this.students_starosta_chb.Size = new System.Drawing.Size(15, 14);
-            this.students_starosta_chb.TabIndex = 18;
-            this.students_starosta_chb.UseVisualStyleBackColor = true;
-            // 
-            // students_SOP_chb
-            // 
-            this.students_SOP_chb.AutoSize = true;
-            this.students_SOP_chb.Location = new System.Drawing.Point(7, 169);
-            this.students_SOP_chb.Name = "students_SOP_chb";
-            this.students_SOP_chb.Size = new System.Drawing.Size(15, 14);
-            this.students_SOP_chb.TabIndex = 19;
-            this.students_SOP_chb.UseVisualStyleBackColor = true;
-            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2432,6 +2505,7 @@ namespace school
             this.Controls.Add(this._tab);
             this.Name = "admin";
             this.Text = "admin";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.admin_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.students_dgv)).EndInit();
             this._tab.ResumeLayout(false);
             this.students.ResumeLayout(false);
@@ -2441,36 +2515,36 @@ namespace school
             this.dop_tab.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.Ctrl.ResumeLayout(false);
+            this.s_gb.ResumeLayout(false);
             this.parrents.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.Ctrl_Par.ResumeLayout(false);
+            this.p_gp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Parrent_dgv)).EndInit();
-            this.Сотрудники.ResumeLayout(false);
+            this.employers.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.e_gp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.timeTable.ResumeLayout(false);
             this.filter_timeTAble_gp.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.tt_gb.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tt_dgv)).EndInit();
             this.Journal.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
+            this.j_gb.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.Events.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
+            this.ev_gp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.e_dgv)).EndInit();
             this.admin_tab.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
@@ -2485,13 +2559,13 @@ namespace school
         private System.Windows.Forms.TabControl _tab;
         private System.Windows.Forms.TabPage students;
         private System.Windows.Forms.TabPage parrents;
-        private System.Windows.Forms.GroupBox Ctrl;
+        private System.Windows.Forms.GroupBox s_gb;
         private System.Windows.Forms.TabControl data_tab;
         private System.Windows.Forms.TabPage filtr_tab;
         private System.Windows.Forms.TabPage dop_tab;
         private CustomControls.RJControls.RJTextBox students_id_tb;
         private CustomControls.RJControls.RJTextBox student_classs_tb;
-        private CustomControls.RJControls.RJTextBox student_adress_tb;
+        private CustomControls.RJControls.RJTextBox student_fio_tb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -2504,7 +2578,7 @@ namespace school
         private CustomControls.RJControls.RJButton students_del_b;
         private CustomControls.RJControls.RJButton students_edit_b;
         private CustomControls.RJControls.RJButton filter_b;
-        private System.Windows.Forms.GroupBox Ctrl_Par;
+        private System.Windows.Forms.GroupBox p_gp;
         private CustomControls.RJControls.RJButton purrents_delete_b;
         private CustomControls.RJControls.RJButton parrents_edit_b;
         private CustomControls.RJControls.RJButton parrents_add_b;
@@ -2524,9 +2598,9 @@ namespace school
         private CustomControls.RJControls.RJButton enter_rel_b;
         private CustomControls.RJControls.RJTextBox parrent_children_tb;
         private CustomControls.RJControls.RJTextBox parrent_class_tb;
-        private System.Windows.Forms.TabPage Сотрудники;
+        private System.Windows.Forms.TabPage employers;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox e_gp;
         private CustomControls.RJControls.RJButton employers_del_b;
         private CustomControls.RJControls.RJButton employers_edit_b;
         private CustomControls.RJControls.RJButton employers_add_b;
@@ -2553,7 +2627,7 @@ namespace school
         private System.Windows.Forms.CheckBox parCon_filtr_chb;
         private System.Windows.Forms.TabPage timeTable;
         private System.Windows.Forms.DataGridView tt_dgv;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox tt_gb;
         private CustomControls.RJControls.RJButton tt_del_b;
         private CustomControls.RJControls.RJButton tt_edit_b;
         private CustomControls.RJControls.RJButton tt_add_b;
@@ -2569,7 +2643,7 @@ namespace school
         private CustomControls.RJControls.RJTextBox tt_teacher_tb;
         private System.Windows.Forms.TabPage Journal;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox j_gb;
         private CustomControls.RJControls.RJButton j_del_b;
         private CustomControls.RJControls.RJButton j_edit_b;
         private CustomControls.RJControls.RJButton j_add_b;
@@ -2585,7 +2659,7 @@ namespace school
         private RJDatePicker to;
         private System.Windows.Forms.TabPage Events;
         private System.Windows.Forms.DataGridView e_dgv;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox ev_gp;
         private CustomControls.RJControls.RJButton e_del_b;
         private CustomControls.RJControls.RJButton e_edit_b;
         private CustomControls.RJControls.RJButton e_add_b;
@@ -2623,5 +2697,8 @@ namespace school
         private CustomControls.RJControls.RJButton admin_add_b;
         private System.Windows.Forms.CheckBox students_SOP_chb;
         private System.Windows.Forms.CheckBox students_starosta_chb;
+        private CustomControls.RJControls.RJTextBox j_class_f_tb;
+        private CustomControls.RJControls.RJButton B_runSqlReauest;
+        private CustomControls.RJControls.RJTextBox tb_SQLrequest;
     }
 }
