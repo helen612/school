@@ -463,6 +463,7 @@ namespace school
             this.best_students_b.Text = "Отличники";
             this.best_students_b.TextColor = System.Drawing.Color.White;
             this.best_students_b.UseVisualStyleBackColor = false;
+            this.best_students_b.Click += new System.EventHandler(this.best_students_b_Click);
             // 
             // activists_b
             // 
@@ -482,6 +483,7 @@ namespace school
             this.activists_b.Text = "Активист";
             this.activists_b.TextColor = System.Drawing.Color.White;
             this.activists_b.UseVisualStyleBackColor = false;
+            this.activists_b.Click += new System.EventHandler(this.activists_b_Click);
             // 
             // groupBox1
             // 
@@ -540,6 +542,7 @@ namespace school
             this.bed_marks_p_b.Text = "Отстающие за период";
             this.bed_marks_p_b.TextColor = System.Drawing.Color.White;
             this.bed_marks_p_b.UseVisualStyleBackColor = false;
+            this.bed_marks_p_b.Click += new System.EventHandler(this.bed_marks_p_b_Click);
             // 
             // label1
             // 
@@ -627,6 +630,7 @@ namespace school
             this.student_add_b.Text = "Добавить";
             this.student_add_b.TextColor = System.Drawing.Color.WhiteSmoke;
             this.student_add_b.UseVisualStyleBackColor = false;
+            this.student_add_b.Click += new System.EventHandler(this.student_add_b_Click);
             // 
             // parrents
             // 
@@ -1506,6 +1510,7 @@ namespace school
             this.tt_filter_b.Text = "Выполнить";
             this.tt_filter_b.TextColor = System.Drawing.Color.White;
             this.tt_filter_b.UseVisualStyleBackColor = false;
+            this.tt_filter_b.Click += new System.EventHandler(this.tt_filter_b_Click);
             // 
             // tt_day_tb
             // 

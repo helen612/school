@@ -1,4 +1,5 @@
-﻿using school.Tables;
+﻿using CustomControls.RJControls;
+using school.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -161,11 +162,20 @@ namespace school
         private void fillThePeoples(object sender, EventArgs e)
         {
             workWithDB workWithDB = new workWithDB();
-            DataSet peoples = workWithDB.GetPeoples(students_id_tb.Texts, student_classs_tb.Texts, student_fio_tb.Texts);
+            DataSet peoples = workWithDB.GetPeoples(students_id_tb.Texts, student_classs_tb.Texts, student_fio_tb.Texts, 
+                GetStateOfBoolFilter(students_starosta_chb, rjToggleButton2), GetStateOfBoolFilter(students_SOP_chb, rjToggleButton1));
             if(peoples != null)
                 students_dgv.DataSource = peoples.Tables[0];
         }
-
+        private int GetStateOfBoolFilter(CheckBox On, RJToggleButton state)
+        {
+            if (On.Checked == false) return 2;
+            else
+            {
+                if (state.Checked == false) return 0;
+                else return 1;
+            }
+        }
         private void _tab_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(_tab.SelectedTab.Equals(admin_tab))
@@ -175,7 +185,7 @@ namespace school
                 choose_table_cb.DataSource = workWithDB.getListTables();
             }
         }
-
+        
         #region admin tools
         private void choose_table_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -200,5 +210,39 @@ namespace school
 
         }
         #endregion
+        private void activists_b_Click(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            DataSet activ = workWithDB.getActivist();
+            if (activ != null)
+                students_dgv.DataSource = activ.Tables[0];
+        }
+        private void best_students_b_Click(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            DataSet bestPeoples = workWithDB.getBestPeoples();
+            if (bestPeoples != null)
+                students_dgv.DataSource = bestPeoples.Tables[0];
+        }
+        private void bed_marks_p_b_Click(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            DataSet laggingPeoples = workWithDB.getLaggingPeoples(rjDatePicker1.Value, rjDatePicker2.Value);
+            if (laggingPeoples != null)
+                students_dgv.DataSource = laggingPeoples.Tables[0];
+        }
+        private void student_add_b_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tt_filter_b_Click(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            DataSet timeTable = workWithDB.getTimeTable(tt_id_tb.Texts, tt_class_tb.Texts, tt_kab_tb.Texts,
+                tt_day_tb.Texts, tt_bring_tb.Texts, tt_bring_do_tb.Texts, tt_sub_tb.Texts, tt_teacher_tb.Texts);
+            if (timeTable != null)
+                tt_dgv.DataSource = timeTable.Tables[0];
+        }
     }
 }

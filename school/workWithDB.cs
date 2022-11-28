@@ -150,7 +150,7 @@ namespace school
             }
             return persons;
         }
-        public DataSet GetPeoples(string id, string clas, string fio)
+        public DataSet GetPeoples(string id, string clas, string fio, int stateS, int stateSOP)
         {
             SqlCommand command = new SqlCommand("GetPeoples", workWithDB.sqlConnection);
             command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -169,11 +169,20 @@ namespace school
                 ParameterName = "@LastName",
                 Value = "%" + fio + "%"
             };
-            
+            SqlParameter par4 = new SqlParameter();
+            par4.ParameterName = "@Starosta";
+            if (stateS == 2) par4.Value = "%";
+            else par4.Value = stateS;
+            SqlParameter par5 = new SqlParameter();
+            par5.ParameterName = "@SOP";
+            if (stateSOP == 2) par5.Value = "%";
+            else par5.Value = stateS;
             command.Parameters.Add(par1);
             command.Parameters.Add(par2);
             command.Parameters.Add(par3);
-            
+            command.Parameters.Add(par4);
+            command.Parameters.Add(par5);
+
             DataSet result = new DataSet();
             try
             {
@@ -251,6 +260,145 @@ namespace school
             }
             return result;
         }
+        public DataSet getActivist()
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("Activist", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
 
+                // Заполняем Dataset
+                adapter.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
+        public DataSet getBestPeoples()
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getBestPeoples", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
+        public DataSet getLaggingPeoples(DateTime from, DateTime to)
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getLaggingPeoples", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter par1 = new SqlParameter
+            {
+                ParameterName = "@dateFrom",
+                Value = from
+            };
+            SqlParameter par2 = new SqlParameter
+            {
+                ParameterName = "@dateTo",
+                Value = to
+            };
+            command.Parameters.Add(par1);
+            command.Parameters.Add(par2);
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
+        public DataSet getTimeTable(string id, string clas, string kab, string day, string from, string to, string subj, string teacher)
+        {
+            SqlCommand command = new SqlCommand("getTimeTable", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter par1 = new SqlParameter
+            {
+                ParameterName = "@id",
+                Value = (id == "") ? "%" : id 
+            };
+            SqlParameter par2 = new SqlParameter
+            {
+                ParameterName = "@class",
+                Value = "%" + clas + "%"
+            };
+            SqlParameter par3 = new SqlParameter
+            {
+                ParameterName = "@kabinet",
+                Value = "%" + kab + "%"
+            };
+            SqlParameter par4 = new SqlParameter
+            {
+                ParameterName = "@day",
+                Value = "%" + day + "%"
+            };
+            SqlParameter par5 = new SqlParameter();
+            par5.ParameterName = "@from";
+            if (from == "") par5.Value = "1";
+            else par5.Value = from;
+            SqlParameter par6 = new SqlParameter();
+            par6.ParameterName = "@to";
+            if (to == "") par6.Value = "7";
+            else par6.Value = to;
+            SqlParameter par7 = new SqlParameter
+            {
+                ParameterName = "@subject",
+                Value = "%" + subj + "%"
+            };
+            SqlParameter par8 = new SqlParameter
+            {
+                ParameterName = "@teacher",
+                Value = "%" + teacher + "%"
+            };
+            command.Parameters.Add(par1);
+            command.Parameters.Add(par2);
+            command.Parameters.Add(par3);
+            command.Parameters.Add(par4);
+            command.Parameters.Add(par5);
+            command.Parameters.Add(par6);
+            command.Parameters.Add(par7);
+            command.Parameters.Add(par8);
+            DataSet result = new DataSet();
+            try
+            {
+                sqlConnection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                adapter.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
     }
 }
