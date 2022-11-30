@@ -123,8 +123,8 @@ namespace school
             this.j_class_f_tb = new CustomControls.RJControls.RJTextBox();
             this.j_to_chb = new System.Windows.Forms.CheckBox();
             this.j_from_chb = new System.Windows.Forms.CheckBox();
-            this.to = new school.RJDatePicker();
-            this.from = new school.RJDatePicker();
+            this.dateTo = new school.RJDatePicker();
+            this.dateFrom = new school.RJDatePicker();
             this.j_teacher_tb = new CustomControls.RJControls.RJTextBox();
             this.j_mark_to_tb = new CustomControls.RJControls.RJTextBox();
             this.j_sub_tb = new CustomControls.RJControls.RJTextBox();
@@ -136,7 +136,7 @@ namespace school
             this.j_del_b = new CustomControls.RJControls.RJButton();
             this.j_edit_b = new CustomControls.RJControls.RJButton();
             this.j_add_b = new CustomControls.RJControls.RJButton();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.J_DGV = new System.Windows.Forms.DataGridView();
             this.Events = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -194,7 +194,7 @@ namespace school
             this.Journal.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.j_gb.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.J_DGV)).BeginInit();
             this.Events.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -1661,7 +1661,7 @@ namespace school
             // 
             this.Journal.Controls.Add(this.groupBox5);
             this.Journal.Controls.Add(this.j_gb);
-            this.Journal.Controls.Add(this.dataGridView3);
+            this.Journal.Controls.Add(this.J_DGV);
             this.Journal.Location = new System.Drawing.Point(4, 24);
             this.Journal.Name = "Journal";
             this.Journal.Size = new System.Drawing.Size(783, 439);
@@ -1674,8 +1674,8 @@ namespace school
             this.groupBox5.Controls.Add(this.j_class_f_tb);
             this.groupBox5.Controls.Add(this.j_to_chb);
             this.groupBox5.Controls.Add(this.j_from_chb);
-            this.groupBox5.Controls.Add(this.to);
-            this.groupBox5.Controls.Add(this.from);
+            this.groupBox5.Controls.Add(this.dateTo);
+            this.groupBox5.Controls.Add(this.dateFrom);
             this.groupBox5.Controls.Add(this.j_teacher_tb);
             this.groupBox5.Controls.Add(this.j_mark_to_tb);
             this.groupBox5.Controls.Add(this.j_sub_tb);
@@ -1720,6 +1720,7 @@ namespace school
             this.j_to_chb.Size = new System.Drawing.Size(15, 14);
             this.j_to_chb.TabIndex = 31;
             this.j_to_chb.UseVisualStyleBackColor = true;
+            this.j_to_chb.CheckedChanged += new System.EventHandler(this.j_to_chb_CheckedChanged);
             // 
             // j_from_chb
             // 
@@ -1729,34 +1730,37 @@ namespace school
             this.j_from_chb.Size = new System.Drawing.Size(15, 14);
             this.j_from_chb.TabIndex = 30;
             this.j_from_chb.UseVisualStyleBackColor = true;
+            this.j_from_chb.CheckedChanged += new System.EventHandler(this.j_from_chb_CheckedChanged);
             // 
-            // to
+            // dateTo
             // 
-            this.to.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.to.BorderSize = 0;
-            this.to.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.to.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.to.Location = new System.Drawing.Point(18, 235);
-            this.to.MinimumSize = new System.Drawing.Size(4, 35);
-            this.to.Name = "to";
-            this.to.Size = new System.Drawing.Size(114, 35);
-            this.to.SkinColor = System.Drawing.Color.Green;
-            this.to.TabIndex = 29;
-            this.to.TextColor = System.Drawing.Color.White;
+            this.dateTo.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.dateTo.BorderSize = 0;
+            this.dateTo.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTo.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTo.Location = new System.Drawing.Point(18, 235);
+            this.dateTo.MinimumSize = new System.Drawing.Size(4, 35);
+            this.dateTo.Name = "dateTo";
+            this.dateTo.Size = new System.Drawing.Size(114, 35);
+            this.dateTo.SkinColor = System.Drawing.Color.Green;
+            this.dateTo.TabIndex = 29;
+            this.dateTo.TextColor = System.Drawing.Color.White;
+            this.dateTo.Value = new System.DateTime(2022, 11, 29, 10, 55, 4, 0);
             // 
-            // from
+            // dateFrom
             // 
-            this.from.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.from.BorderSize = 0;
-            this.from.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.from.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.from.Location = new System.Drawing.Point(18, 197);
-            this.from.MinimumSize = new System.Drawing.Size(4, 35);
-            this.from.Name = "from";
-            this.from.Size = new System.Drawing.Size(114, 35);
-            this.from.SkinColor = System.Drawing.Color.Green;
-            this.from.TabIndex = 28;
-            this.from.TextColor = System.Drawing.Color.White;
+            this.dateFrom.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.dateFrom.BorderSize = 0;
+            this.dateFrom.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateFrom.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateFrom.Location = new System.Drawing.Point(18, 197);
+            this.dateFrom.MinimumSize = new System.Drawing.Size(4, 35);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Size = new System.Drawing.Size(114, 35);
+            this.dateFrom.SkinColor = System.Drawing.Color.Green;
+            this.dateFrom.TabIndex = 28;
+            this.dateFrom.TextColor = System.Drawing.Color.White;
+            this.dateFrom.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             // 
             // j_teacher_tb
             // 
@@ -1979,15 +1983,15 @@ namespace school
             this.j_add_b.TextColor = System.Drawing.Color.WhiteSmoke;
             this.j_add_b.UseVisualStyleBackColor = false;
             // 
-            // dataGridView3
+            // J_DGV
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.GridColor = System.Drawing.SystemColors.Info;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(570, 432);
-            this.dataGridView3.TabIndex = 4;
+            this.J_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.J_DGV.GridColor = System.Drawing.SystemColors.Info;
+            this.J_DGV.Location = new System.Drawing.Point(0, 0);
+            this.J_DGV.Name = "J_DGV";
+            this.J_DGV.RowTemplate.Height = 25;
+            this.J_DGV.Size = new System.Drawing.Size(570, 432);
+            this.J_DGV.TabIndex = 4;
             // 
             // Events
             // 
@@ -2543,7 +2547,7 @@ namespace school
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.j_gb.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.J_DGV)).EndInit();
             this.Events.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
@@ -2647,7 +2651,7 @@ namespace school
         private CustomControls.RJControls.RJTextBox tt_bring_do_tb;
         private CustomControls.RJControls.RJTextBox tt_teacher_tb;
         private System.Windows.Forms.TabPage Journal;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView J_DGV;
         private System.Windows.Forms.GroupBox j_gb;
         private CustomControls.RJControls.RJButton j_del_b;
         private CustomControls.RJControls.RJButton j_edit_b;
@@ -2660,8 +2664,8 @@ namespace school
         private CustomControls.RJControls.RJTextBox j_people_tb;
         private CustomControls.RJControls.RJTextBox j_mark_from_tb;
         private CustomControls.RJControls.RJTextBox j_id_tb;
-        private RJDatePicker from;
-        private RJDatePicker to;
+        private RJDatePicker dateFrom;
+        private RJDatePicker dateTo;
         private System.Windows.Forms.TabPage Events;
         private System.Windows.Forms.DataGridView e_dgv;
         private System.Windows.Forms.GroupBox ev_gp;

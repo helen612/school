@@ -56,7 +56,7 @@ namespace school
 
         private void label3_Click(object sender, EventArgs e)
         {
-            admin a = new admin(this, 1, 1);
+            admin a = new admin(this, 2, 13);
             a.Show();
             this.Hide();
         }

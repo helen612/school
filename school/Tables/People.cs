@@ -13,6 +13,7 @@ namespace school.Tables
         public string LastName { get; set; }
         public string FatherName { get; set; }
         public string nameClass { get; set; }
+        public int idClass { get; set; }
         public string address { get; set; }
         public bool starosta { get; set; }
         public bool SOP { get; set; }
@@ -27,8 +28,9 @@ namespace school.Tables
             Name = "";
             LastName = "";
             FatherName = "";
+            idClass = -1;
         }
-        public People(int id, string adr, bool sts, bool SOP, string nameClass, string name, string LastName, string FatherName)
+        public People(int id, string adr, bool sts, bool SOP, string nameClass, string name, string LastName, string FatherName, int idclass)
         {
             this.id = id;
             this.address = adr;
@@ -38,6 +40,7 @@ namespace school.Tables
             this.Name = name;
             this.LastName = LastName;
             this.FatherName = FatherName;
+            this.idClass = idclass;
         }
     }
 }

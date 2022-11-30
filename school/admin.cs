@@ -16,7 +16,7 @@ namespace school
 {
     public partial class admin : Form
     {
-
+        int idOfPerson = 0;
         Form1 aunt;
         //private List<List<int>> Levels;
         private bool getTrueTime(string str)
@@ -28,9 +28,12 @@ namespace school
         {
             InitializeComponent();
             aunt = form1;
+            idOfPerson = id;
             //_tab.SelectedTab = Journal;
             Access(level, id);
             fillThePeoples(null, null);
+            tt_filter_b_Click(null, null);
+            rjButton2_Click(null, null);
         }
 
         private void filtr_tab_Click(object sender, EventArgs e)
@@ -45,7 +48,33 @@ namespace school
 
         private void rjButton2_Click(object sender, EventArgs e)
         {
-
+            workWithDB workWithDB = new workWithDB();
+            
+            List<People> children = new List<People>();
+            children = workWithDB.getClassForParrent(idOfPerson);
+            if(children.Count >= 1)
+            {
+                List<DataTable> tables = new List<DataTable>();
+                DataTable result = new DataTable();
+                foreach (var v in children)
+                {
+                    DataSet Journal = workWithDB.getJournal(j_id_tb.Texts, v.nameClass, j_sub_tb.Texts,
+                    $"{v.LastName} {v.Name[0]}. {v.FatherName[0]}.", j_teacher_tb.Texts, dateFrom.Value, dateTo.Value,
+                    j_mark_from_tb.Texts, j_mark_to_tb.Texts, idOfPerson.ToString());
+                    tables.Add(Journal.Tables[0]);
+                }
+                foreach (var v in tables)
+                {
+                    result.Merge(v);
+                }
+                J_DGV.DataSource = result;
+            }
+            else
+            {
+                J_DGV.DataSource = workWithDB.getJournal(j_id_tb.Texts, j_class_f_tb.Texts, j_sub_tb.Texts,
+                    j_people_tb.Texts, j_teacher_tb.Texts, dateFrom.Value, dateTo.Value,
+                    j_mark_from_tb.Texts, j_mark_to_tb.Texts, idOfPerson.ToString()).Tables[0];
+            }
         }
 
         private void rjTextBox1__TextChanged(object sender, EventArgs e)
@@ -87,7 +116,9 @@ namespace school
                         _tab.TabPages.Remove(Events);
                         _tab.TabPages.Remove(admin_tab);
                         j_class_f_tb.Texts = workWithDB.getClassOfStudent(id);
+                        j_people_tb.Texts = workWithDB.getStudent(id);
                         j_class_f_tb.Enabled = false;
+                        j_people_tb.Enabled = false;
                         j_gb.Enabled = false;
                         tt_gb.Enabled = false;
                         break;
@@ -101,11 +132,11 @@ namespace school
                         j_gb.Enabled = false;
                         tt_gb.Enabled = false;
                         e_gp.Enabled = false;
-                        List<string> classes = new List<string>();
+                        List<People> classes = new List<People>();
                         classes = workWithDB.getClassForParrent(id);
                         foreach (var v in classes)
                         {
-                            j_class_f_tb.Texts = string.Join(" ", classes.ToArray());
+                            j_class_f_tb.Texts = string.Join(" ", v.nameClass);
                         }
                         j_class_f_tb.Enabled = false;
                         break;
@@ -185,7 +216,12 @@ namespace school
                 choose_table_cb.DataSource = workWithDB.getListTables();
             }
         }
-        
+
+        #region учащийся
+
+        #endregion
+
+
         #region admin tools
         private void choose_table_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -235,7 +271,6 @@ namespace school
         {
 
         }
-
         private void tt_filter_b_Click(object sender, EventArgs e)
         {
             workWithDB workWithDB = new workWithDB();
@@ -243,6 +278,15 @@ namespace school
                 tt_day_tb.Texts, tt_bring_tb.Texts, tt_bring_do_tb.Texts, tt_sub_tb.Texts, tt_teacher_tb.Texts);
             if (timeTable != null)
                 tt_dgv.DataSource = timeTable.Tables[0];
+        }
+        private void j_from_chb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!j_from_chb.Checked) dateFrom.Value = new DateTime(1753, 1, 1);
+            else dateFrom.Value = new DateTime(DateTime.Now.Year - 3, DateTime.Now.Month, DateTime.Now.Day);
+        }
+        private void j_to_chb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!j_to_chb.Checked) dateTo.Value = DateTime.Now;
         }
     }
 }

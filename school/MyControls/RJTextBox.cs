@@ -275,7 +275,16 @@ namespace CustomControls.RJControls
                 textBox1.Text = placeholderText;
                 textBox1.ForeColor = placeholderColor;
                 if (isPasswordChar)
+
                     textBox1.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                isPlaceholder = false;
+                textBox1.ForeColor = placeholderColor;
+                if (isPasswordChar)
+
+                    textBox1.UseSystemPasswordChar = true;
             }
         }
         private void RemovePlaceholder()

@@ -41,7 +41,7 @@ namespace school
                     somePerson.lvl = Convert.ToInt32(sqlDataReader["level"]);
                 }
                 sqlDataReader.Close();
-
+                sqlConnection.Close();
 
             }
             catch (Exception ex)
@@ -68,7 +68,7 @@ namespace school
                     classOfPeople = sqlDataReader["Название"].ToString();
                 }
                 sqlDataReader.Close();
-
+                sqlConnection.Close();
 
             }
             catch (Exception ex)
@@ -78,9 +78,9 @@ namespace school
 
             return classOfPeople;
         }
-        public List<string> getClassForParrent(int id)
+        public List<People> getClassForParrent(int id)
         {
-            List<string> classes = new List<string>();
+            List<People> classes = new List<People>();
             sqlConnection.Open();
 
             SqlDataReader sqlDataReader = null;
@@ -101,10 +101,20 @@ namespace school
                 {
                     while (sqlDataReader.Read())
                     {
-                        classes.Add(sqlDataReader["Название"].ToString());
+                        People p = new People();
+                        p.nameClass = (sqlDataReader["Название"].ToString());
+                        p.LastName = (sqlDataReader["фамилия"].ToString());
+                        p.Name = (sqlDataReader["имя"].ToString());
+                        p.FatherName = (sqlDataReader["отчество"].ToString());
+                        p.id = Convert.ToInt32((sqlDataReader["id"].ToString()));
+                        p.idClass = Convert.ToInt32((sqlDataReader["idClass"].ToString()));
+
+                        classes.Add(p);
+
                     }
                 }
                 sqlDataReader.Close();
+                sqlConnection.Close();
             }
             catch (SqlException ex)
             {
@@ -143,6 +153,7 @@ namespace school
                     }
                 }
                 sqlDataReader.Close();
+                sqlConnection.Close();
             }
             catch (SqlException ex)
             {
@@ -190,6 +201,7 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                
                 adapter.Fill(result);
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
@@ -208,6 +220,7 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter($"select * from {tableName}", sqlConnection);
                 // Заполняем Dataset
                 adapter.Fill(result);
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
@@ -231,7 +244,7 @@ namespace school
                    ListTables.Add(sqlDataReader["name"].ToString());
                 }
                 sqlDataReader.Close();
-
+                sqlConnection.Close();
 
             }
             catch (Exception ex)
@@ -252,6 +265,7 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter($"{sql}", sqlConnection);
                 // Заполняем Dataset
                     adapter.Fill(result);
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
@@ -273,6 +287,7 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
@@ -281,6 +296,7 @@ namespace school
             }
             return result;
         }
+
         public DataSet getBestPeoples()
         {
             DataSet result = new DataSet();
@@ -294,6 +310,7 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
@@ -327,6 +344,7 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
@@ -392,6 +410,7 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 adapter.Fill(result);
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
@@ -399,6 +418,115 @@ namespace school
                 result = null;
             }
             return result;
+        }
+        public DataSet getJournal(string id, string clas, string sub, string people, string teacher, DateTime timeFrom, DateTime timeTo, 
+            string markFrom, string markTo, string idOfPeople)
+        {
+            SqlCommand command = new SqlCommand("getMarkForPeople", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter par1 = new SqlParameter
+            {
+                ParameterName = "@id",
+                Value = (id == "") ? "%" : id
+            };
+            SqlParameter par2 = new SqlParameter
+            {
+                ParameterName = "@idClass",
+                Value = "%" + clas + "%"
+            };
+            SqlParameter par3 = new SqlParameter
+            {
+                ParameterName = "@idScObj",
+                Value = "%" + sub + "%"
+            };
+            SqlParameter par4 = new SqlParameter
+            {
+                ParameterName = "@LnameStudier",
+                Value = "%" + people + "%"
+            };
+            SqlParameter par5 = new SqlParameter
+            {
+                ParameterName = "@LnameTeacher",
+                Value = "%" + teacher + "%"
+            };
+            SqlParameter par6 = new SqlParameter
+            {
+                ParameterName = "@dateFrom",
+                Value = timeFrom
+            };
+            SqlParameter par7 = new SqlParameter
+            {
+                ParameterName = "@dateTo",
+                Value = timeTo
+            };
+            SqlParameter par8 = new SqlParameter
+            {
+                ParameterName = "@markFron",
+                Value = (markFrom == "") ? "1" : markFrom
+            };
+            SqlParameter par9 = new SqlParameter
+            {
+                ParameterName = "@markTo",
+                Value = (markTo == "") ? "10" : markTo
+            };
+            SqlParameter par10 = new SqlParameter
+            {
+                ParameterName = "@idOfPeople",
+                Value = (idOfPeople == "") ? "%" : idOfPeople
+            };
+            command.Parameters.Add(par1);
+            command.Parameters.Add(par2);
+            command.Parameters.Add(par3);
+            command.Parameters.Add(par4);
+            command.Parameters.Add(par5);
+            command.Parameters.Add(par6);
+            command.Parameters.Add(par7);
+            command.Parameters.Add(par8);
+            command.Parameters.Add(par9);
+            command.Parameters.Add(par10);
+            DataSet result = new DataSet();
+            try
+            {
+                sqlConnection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                adapter.Fill(result);
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+
+            return result;
+        }
+        public string getStudent(int id)
+        {
+            string peopleFIO = "";
+            sqlConnection.Open();
+
+            SqlDataReader sqlDataReader = null;
+            SqlCommand command = new SqlCommand($"select Person.LastName + ' ' + SUBSTRING(Person.Name, 1, 1) + '. ' + SUBSTRING(Person.Patronymic, 1, 1)  + '.' as FIO from Журнал " +
+                                                $"inner join Person on Person.id = Журнал.[Код ученика] " +
+                                                $"where id = '{id}'", workWithDB.sqlConnection);
+            try
+            {
+                sqlDataReader = command.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    peopleFIO = sqlDataReader["FIO"].ToString();
+                }
+                sqlDataReader.Close();
+                sqlConnection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                peopleFIO = ex.Message;
+            }
+
+            return peopleFIO;
         }
     }
 }
