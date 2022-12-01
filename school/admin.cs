@@ -209,7 +209,6 @@ namespace school
             if(_tab.SelectedTab.Equals(admin_tab))
             {
                 workWithDB workWithDB = new workWithDB();
-                choose_table_cb.Items.Clear();
                 choose_table_cb.DataSource = workWithDB.getListTables();
             }
         }
@@ -266,7 +265,8 @@ namespace school
         }
         private void student_add_b_Click(object sender, EventArgs e)
         {
-
+            addStudent add_s = new addStudent();
+            add_s.ShowDialog();
         }
         private void tt_filter_b_Click(object sender, EventArgs e)
         {

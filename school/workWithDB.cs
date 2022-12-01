@@ -14,7 +14,8 @@ namespace school
 {
     class workWithDB
     {
-        public static string connectionString = @"Data Source=ALENA-PC\SQLEXPRESS;Initial Catalog=1;Integrated Security=True";
+        public static string connectionString = @"Data Source=SUPERBIG-PC\SQLEXPRESS;Initial Catalog=1;Integrated Security=True";
+        //public static string connectionString = @"Data Source=ALENA-PC\SQLEXPRESS;Initial Catalog=1;Integrated Security=True";
         public static SqlConnection sqlConnection;
         public workWithDB()
         {
@@ -645,5 +646,90 @@ namespace school
             }
             return result;
         }
+        public DataSet getClasses()
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getClasses", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
+        public int addStudier(RegStudier studier)
+        {
+            SqlCommand command = new SqlCommand("addStudier", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            
+            int result = -1;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@username", studier.username);
+                SqlParameter p2 = new SqlParameter("@password", studier.password);
+                SqlParameter p3 = new SqlParameter("@level", "1");
+                SqlParameter p4 = new SqlParameter("@lastName", studier.LastName);
+                SqlParameter p5 = new SqlParameter("@name", studier.Name);
+                SqlParameter p6 = new SqlParameter("@FatherName", studier.FatherName);
+                SqlParameter p7 = new SqlParameter("@sex", studier.Sex);
+                SqlParameter p8 = new SqlParameter("@birthday", studier.Birthday);
+                SqlParameter p9 = new SqlParameter("@number", studier.Number);
+                SqlParameter p10 = new SqlParameter("@mail", studier.Mail);
+                SqlParameter p11 = new SqlParameter("@position", studier.Position);
+                SqlParameter p12 = new SqlParameter("@secretword", studier.SecretWord);
+                SqlParameter p13 = new SqlParameter("@idclass", studier.idclass);
+                SqlParameter p14 = new SqlParameter("@adress", studier.adress);
+                SqlParameter p15 = new SqlParameter("@starosta", Convert.ToInt32(studier.starosta));
+                SqlParameter p16 = new SqlParameter("@SOP", Convert.ToInt32(studier.SOP));
+                SqlParameter id = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output // параметр выходной
+                };
+
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+                command.Parameters.Add(p6);
+                command.Parameters.Add(p7);
+                command.Parameters.Add(p8);
+                command.Parameters.Add(p9);
+                command.Parameters.Add(p10);
+                command.Parameters.Add(p11);
+                command.Parameters.Add(p12);
+                command.Parameters.Add(p13);
+                command.Parameters.Add(p14);
+                command.Parameters.Add(p15);
+                command.Parameters.Add(p16);
+                command.Parameters.Add(id);
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = Convert.ToInt32(command.Parameters["@id"].Value);
+
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = -1;
+            }
+
+            return result;
+        }
     }
+    
 }

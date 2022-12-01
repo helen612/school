@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F15sHz1EiWPhMIJqHgrzLasmg3IDDtUVkZiLcyOc4KYF91n8UKgbjfFeY9Zg04kssLYNthOEzVobp6+Qkkzo0A==",
+  "dgSpecHash": "bf8BkhXzngRkINp2nF2D4N/k72L57zz9H7BOSAVZclDQYXKns0qtTL+PVd61vbBnOqT95KXiLTcpKrUX8vx+jA==",
   "success": true,
-  "projectFilePath": "C:\\myDoc\\school\\school\\school.csproj",
+  "projectFilePath": "E:\\work\\school\\school\\school.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\crazy\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\crazy\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
