@@ -66,3 +66,11 @@ C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\runtimes\win-x64\
 C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
 C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\myDoc\school — копия\school\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\myDoc\school\school\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+C:\myDoc\school\school\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+C:\myDoc\school\school\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+C:\myDoc\school\school\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+C:\myDoc\school\school\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\myDoc\school\school\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\myDoc\school\school\obj\Debug\net5.0-windows\school.add_resationships.resources
+C:\myDoc\school\school\obj\Debug\net5.0-windows\school.Properties.Resources.resources

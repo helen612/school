@@ -528,5 +528,122 @@ namespace school
 
             return peopleFIO;
         }
+        public DataSet getEmployers(string id, string fio, string pos, DateTime date, int ProfM)
+        {
+            SqlCommand command = new SqlCommand("getEmploers", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter par1 = new SqlParameter
+            {
+                ParameterName = "@id",
+                Value = (id == "") ? "%" : id
+            };
+            SqlParameter par2 = new SqlParameter
+            {
+                ParameterName = "@fio",
+                Value = "%" + fio + "%"
+            };
+            SqlParameter par3 = new SqlParameter
+            {
+                ParameterName = "@pos",
+                Value = "%" + pos + "%"
+            };
+            SqlParameter par4 = new SqlParameter
+            {
+                ParameterName = "@date",
+                Value = date
+            };
+            SqlParameter par6 = new SqlParameter
+            {
+                ParameterName = "@ProfS",
+                Value = (ProfM == 2) ? "%" : ProfM
+            };
+            command.Parameters.Add(par1);
+            command.Parameters.Add(par2);
+            command.Parameters.Add(par3);
+            command.Parameters.Add(par4);
+            command.Parameters.Add(par6);
+            DataSet result = new DataSet();
+            try
+            {
+                sqlConnection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                adapter.Fill(result);
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+
+            return result;
+        }
+        public DataSet GetExpEmpl()
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("BigExp", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
+        public DataSet GetMonfeeders()
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getMonfeeders", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
+        public DataSet getCLassRuk()
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getCLassRuk", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
     }
 }

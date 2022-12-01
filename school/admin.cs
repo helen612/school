@@ -34,6 +34,7 @@ namespace school
             fillThePeoples(null, null);
             tt_filter_b_Click(null, null);
             rjButton2_Click(null, null);
+            eml_filttr_b_Click(null, null);
         }
 
         private void filtr_tab_Click(object sender, EventArgs e)
@@ -59,7 +60,7 @@ namespace school
                 foreach (var v in children)
                 {
                     DataSet Journal = workWithDB.getJournal(j_id_tb.Texts, v.nameClass, j_sub_tb.Texts,
-                    $"{v.LastName} {v.Name[0]}. {v.FatherName[0]}.", j_teacher_tb.Texts, dateFrom.Value, dateTo.Value,
+                    j_people_tb.Texts, j_teacher_tb.Texts, dateFrom.Value, dateTo.Value,
                     j_mark_from_tb.Texts, j_mark_to_tb.Texts, idOfPerson.ToString());
                     tables.Add(Journal.Tables[0]);
                 }
@@ -95,7 +96,9 @@ namespace school
 
         private void more_one_stavka_b_Click(object sender, EventArgs e)
         {
-            
+            workWithDB workWithDB = new workWithDB();
+            DataSet ds = workWithDB.GetMonfeeders();
+            if (ds != null) emplyers_dgv.DataSource = ds.Tables[0];
         }
 
         private void admin_FormClosed(object sender, FormClosedEventArgs e)
@@ -132,12 +135,6 @@ namespace school
                         j_gb.Enabled = false;
                         tt_gb.Enabled = false;
                         e_gp.Enabled = false;
-                        List<People> classes = new List<People>();
-                        classes = workWithDB.getClassForParrent(id);
-                        foreach (var v in classes)
-                        {
-                            j_class_f_tb.Texts = string.Join(" ", v.nameClass);
-                        }
                         j_class_f_tb.Enabled = false;
                         break;
                     }
@@ -287,6 +284,34 @@ namespace school
         private void j_to_chb_CheckedChanged(object sender, EventArgs e)
         {
             if (!j_to_chb.Checked) dateTo.Value = DateTime.Now;
+        }
+
+        private void eml_filttr_b_Click(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            DataSet employer = workWithDB.getEmployers(empl_tb.Texts, FIO_tb.Texts, position_tb.Texts, dataEmplyer.Value
+                , GetStateOfBoolFilter(prof_filtr_chb, stateOfProfM_cb));
+            if (employer != null)
+                emplyers_dgv.DataSource = employer.Tables[0];
+        }
+
+        private void empl_date_filter_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!empl_date_filter.Checked) dataEmplyer.Value = new DateTime(1753, 1, 1);
+            else dataEmplyer.Value = new DateTime(DateTime.Now.Year - 3, DateTime.Now.Month, DateTime.Now.Day);
+        }
+        private void much_ex_b_Click(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            DataSet BigExpP = workWithDB.GetExpEmpl();
+            if (BigExpP != null) emplyers_dgv.DataSource = BigExpP.Tables[0];
+        }
+
+        private void ClassRuk_b_Click(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            DataSet ds = workWithDB.getCLassRuk();
+            if (ds != null) emplyers_dgv.DataSource = ds.Tables[0];
         }
     }
 }
