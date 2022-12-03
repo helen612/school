@@ -31,10 +31,8 @@ namespace school
         {
             this.tb_id_parrent = new CustomControls.RJControls.RJTextBox();
             this.tb_id_child = new CustomControls.RJControls.RJTextBox();
-            this.parrent_l = new System.Windows.Forms.Label();
-            this.child_l = new System.Windows.Forms.Label();
             this.set_relationships_b = new CustomControls.RJControls.RJButton();
-            this.cansel_b = new CustomControls.RJControls.RJButton();
+            this.rjButton1 = new CustomControls.RJControls.RJButton();
             this.SuspendLayout();
             // 
             // tb_id_parrent
@@ -46,7 +44,7 @@ namespace school
             this.tb_id_parrent.BorderSize = 2;
             this.tb_id_parrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_id_parrent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_id_parrent.Location = new System.Drawing.Point(13, 23);
+            this.tb_id_parrent.Location = new System.Drawing.Point(13, 13);
             this.tb_id_parrent.Margin = new System.Windows.Forms.Padding(4);
             this.tb_id_parrent.Multiline = false;
             this.tb_id_parrent.Name = "tb_id_parrent";
@@ -68,7 +66,7 @@ namespace school
             this.tb_id_child.BorderSize = 2;
             this.tb_id_child.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_id_child.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_id_child.Location = new System.Drawing.Point(13, 81);
+            this.tb_id_child.Location = new System.Drawing.Point(13, 56);
             this.tb_id_child.Margin = new System.Windows.Forms.Padding(4);
             this.tb_id_child.Multiline = false;
             this.tb_id_child.Name = "tb_id_child";
@@ -81,24 +79,6 @@ namespace school
             this.tb_id_child.Texts = "";
             this.tb_id_child.UnderlinedStyle = false;
             // 
-            // parrent_l
-            // 
-            this.parrent_l.AutoSize = true;
-            this.parrent_l.Location = new System.Drawing.Point(12, 62);
-            this.parrent_l.Name = "parrent_l";
-            this.parrent_l.Size = new System.Drawing.Size(58, 15);
-            this.parrent_l.TabIndex = 7;
-            this.parrent_l.Text = "Родитель";
-            // 
-            // child_l
-            // 
-            this.child_l.AutoSize = true;
-            this.child_l.Location = new System.Drawing.Point(13, 120);
-            this.child_l.Name = "child_l";
-            this.child_l.Size = new System.Drawing.Size(53, 15);
-            this.child_l.TabIndex = 8;
-            this.child_l.Text = "Ребенок";
-            // 
             // set_relationships_b
             // 
             this.set_relationships_b.BackColor = System.Drawing.Color.Green;
@@ -110,48 +90,47 @@ namespace school
             this.set_relationships_b.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.set_relationships_b.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.set_relationships_b.ForeColor = System.Drawing.Color.White;
-            this.set_relationships_b.Location = new System.Drawing.Point(14, 148);
+            this.set_relationships_b.Location = new System.Drawing.Point(14, 98);
             this.set_relationships_b.Name = "set_relationships_b";
             this.set_relationships_b.Size = new System.Drawing.Size(177, 57);
             this.set_relationships_b.TabIndex = 18;
             this.set_relationships_b.Text = "Установить родтсвенную связь";
             this.set_relationships_b.TextColor = System.Drawing.Color.White;
             this.set_relationships_b.UseVisualStyleBackColor = false;
+            this.set_relationships_b.Click += new System.EventHandler(this.set_relationships_b_Click);
             // 
-            // cansel_b
+            // rjButton1
             // 
-            this.cansel_b.BackColor = System.Drawing.Color.Green;
-            this.cansel_b.BackgroundColor = System.Drawing.Color.Green;
-            this.cansel_b.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.cansel_b.BorderRadius = 10;
-            this.cansel_b.BorderSize = 0;
-            this.cansel_b.FlatAppearance.BorderSize = 0;
-            this.cansel_b.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cansel_b.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cansel_b.ForeColor = System.Drawing.Color.White;
-            this.cansel_b.Location = new System.Drawing.Point(13, 211);
-            this.cansel_b.Name = "cansel_b";
-            this.cansel_b.Size = new System.Drawing.Size(177, 34);
-            this.cansel_b.TabIndex = 19;
-            this.cansel_b.Text = "Отмена";
-            this.cansel_b.TextColor = System.Drawing.Color.White;
-            this.cansel_b.UseVisualStyleBackColor = false;
+            this.rjButton1.BackColor = System.Drawing.Color.Green;
+            this.rjButton1.BackgroundColor = System.Drawing.Color.Green;
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 10;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(14, 161);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(177, 57);
+            this.rjButton1.TabIndex = 19;
+            this.rjButton1.Text = "Удалить родтсвенную связь";
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
             // add_resationships
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(203, 257);
-            this.Controls.Add(this.cansel_b);
+            this.ClientSize = new System.Drawing.Size(203, 226);
+            this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.set_relationships_b);
-            this.Controls.Add(this.child_l);
-            this.Controls.Add(this.parrent_l);
             this.Controls.Add(this.tb_id_child);
             this.Controls.Add(this.tb_id_parrent);
             this.Name = "add_resationships";
             this.Text = "add_resationships";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -159,9 +138,7 @@ namespace school
 
         private CustomControls.RJControls.RJTextBox tb_id_parrent;
         private CustomControls.RJControls.RJTextBox tb_id_child;
-        private System.Windows.Forms.Label parrent_l;
-        private System.Windows.Forms.Label child_l;
         private CustomControls.RJControls.RJButton set_relationships_b;
-        private CustomControls.RJControls.RJButton cansel_b;
+        private CustomControls.RJControls.RJButton rjButton1;
     }
 }

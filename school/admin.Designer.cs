@@ -60,18 +60,15 @@ namespace school
             this.parrents = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.parCon_filtr_chb = new System.Windows.Forms.CheckBox();
-            this.rjTextBox5 = new CustomControls.RJControls.RJTextBox();
-            this.parrent_children_tb = new CustomControls.RJControls.RJTextBox();
-            this.parrent_class_tb = new CustomControls.RJControls.RJTextBox();
-            this.rjButton4 = new CustomControls.RJControls.RJButton();
-            this.parrentCon_chb = new CustomControls.RJControls.RJToggleButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.parrent_job_tb = new CustomControls.RJControls.RJTextBox();
-            this.parrent_id_tb = new CustomControls.RJControls.RJTextBox();
+            this.people_tb_children = new CustomControls.RJControls.RJTextBox();
+            this.parrent_tb_children = new CustomControls.RJControls.RJTextBox();
+            this.parrent_tb_class = new CustomControls.RJControls.RJTextBox();
+            this.parent_b_go = new CustomControls.RJControls.RJButton();
+            this.parrent_tb_job = new CustomControls.RJControls.RJTextBox();
+            this.parrent_tb_id = new CustomControls.RJControls.RJTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.enter_rel_b = new CustomControls.RJControls.RJButton();
-            this.parCom_b = new CustomControls.RJControls.RJButton();
+            this.parent_b_pwoc = new CustomControls.RJControls.RJButton();
             this.large_famile_b = new CustomControls.RJControls.RJButton();
             this.p_gp = new System.Windows.Forms.GroupBox();
             this.purrents_delete_b = new CustomControls.RJControls.RJButton();
@@ -126,7 +123,7 @@ namespace school
             this.j_teacher_tb = new CustomControls.RJControls.RJTextBox();
             this.j_mark_to_tb = new CustomControls.RJControls.RJTextBox();
             this.j_sub_tb = new CustomControls.RJControls.RJTextBox();
-            this.j_filter_b = new CustomControls.RJControls.RJButton();
+            this.journal_b_go = new CustomControls.RJControls.RJButton();
             this.j_people_tb = new CustomControls.RJControls.RJTextBox();
             this.j_mark_from_tb = new CustomControls.RJControls.RJTextBox();
             this.j_id_tb = new CustomControls.RJControls.RJTextBox();
@@ -206,6 +203,8 @@ namespace school
             // 
             // students_dgv
             // 
+            this.students_dgv.AllowUserToAddRows = false;
+            this.students_dgv.AllowUserToDeleteRows = false;
             this.students_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.students_dgv.GridColor = System.Drawing.SystemColors.Info;
             this.students_dgv.Location = new System.Drawing.Point(0, 0);
@@ -283,6 +282,7 @@ namespace school
             this.students_SOP_chb.Size = new System.Drawing.Size(15, 14);
             this.students_SOP_chb.TabIndex = 19;
             this.students_SOP_chb.UseVisualStyleBackColor = true;
+            this.students_SOP_chb.CheckedChanged += new System.EventHandler(this.students_SOP_chb_CheckedChanged);
             // 
             // students_starosta_chb
             // 
@@ -292,6 +292,7 @@ namespace school
             this.students_starosta_chb.Size = new System.Drawing.Size(15, 14);
             this.students_starosta_chb.TabIndex = 18;
             this.students_starosta_chb.UseVisualStyleBackColor = true;
+            this.students_starosta_chb.CheckedChanged += new System.EventHandler(this.students_starosta_chb_CheckedChanged);
             // 
             // filter_b
             // 
@@ -316,6 +317,7 @@ namespace school
             // rjToggleButton2
             // 
             this.rjToggleButton2.AutoSize = true;
+            this.rjToggleButton2.Enabled = false;
             this.rjToggleButton2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.rjToggleButton2.Location = new System.Drawing.Point(140, 134);
             this.rjToggleButton2.MinimumSize = new System.Drawing.Size(45, 22);
@@ -331,6 +333,7 @@ namespace school
             // rjToggleButton1
             // 
             this.rjToggleButton1.AutoSize = true;
+            this.rjToggleButton1.Enabled = false;
             this.rjToggleButton1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.rjToggleButton1.Location = new System.Drawing.Point(140, 165);
             this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
@@ -610,6 +613,7 @@ namespace school
             this.students_edit_b.Text = "Редактировать";
             this.students_edit_b.TextColor = System.Drawing.Color.White;
             this.students_edit_b.UseVisualStyleBackColor = false;
+            this.students_edit_b.Click += new System.EventHandler(this.students_edit_b_Click);
             // 
             // student_add_b
             // 
@@ -636,6 +640,7 @@ namespace school
             this.parrents.Controls.Add(this.tabControl1);
             this.parrents.Controls.Add(this.p_gp);
             this.parrents.Controls.Add(this.Parrent_dgv);
+            this.parrents.ForeColor = System.Drawing.Color.MidnightBlue;
             this.parrents.Location = new System.Drawing.Point(4, 24);
             this.parrents.Name = "parrents";
             this.parrents.Padding = new System.Windows.Forms.Padding(3);
@@ -657,15 +662,12 @@ namespace school
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.parCon_filtr_chb);
-            this.tabPage1.Controls.Add(this.rjTextBox5);
-            this.tabPage1.Controls.Add(this.parrent_children_tb);
-            this.tabPage1.Controls.Add(this.parrent_class_tb);
-            this.tabPage1.Controls.Add(this.rjButton4);
-            this.tabPage1.Controls.Add(this.parrentCon_chb);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.parrent_job_tb);
-            this.tabPage1.Controls.Add(this.parrent_id_tb);
+            this.tabPage1.Controls.Add(this.people_tb_children);
+            this.tabPage1.Controls.Add(this.parrent_tb_children);
+            this.tabPage1.Controls.Add(this.parrent_tb_class);
+            this.tabPage1.Controls.Add(this.parent_b_go);
+            this.tabPage1.Controls.Add(this.parrent_tb_job);
+            this.tabPage1.Controls.Add(this.parrent_tb_id);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -673,174 +675,140 @@ namespace school
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Фильтр";
             // 
-            // parCon_filtr_chb
+            // people_tb_children
             // 
-            this.parCon_filtr_chb.AutoSize = true;
-            this.parCon_filtr_chb.Location = new System.Drawing.Point(7, 187);
-            this.parCon_filtr_chb.Name = "parCon_filtr_chb";
-            this.parCon_filtr_chb.Size = new System.Drawing.Size(15, 14);
-            this.parCon_filtr_chb.TabIndex = 21;
-            this.parCon_filtr_chb.UseVisualStyleBackColor = true;
+            this.people_tb_children.BackColor = System.Drawing.SystemColors.Window;
+            this.people_tb_children.BorderColor = System.Drawing.Color.Green;
+            this.people_tb_children.BorderFocusColor = System.Drawing.Color.Lime;
+            this.people_tb_children.BorderRadius = 0;
+            this.people_tb_children.BorderSize = 2;
+            this.people_tb_children.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.people_tb_children.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.people_tb_children.Location = new System.Drawing.Point(7, 164);
+            this.people_tb_children.Margin = new System.Windows.Forms.Padding(4);
+            this.people_tb_children.Multiline = false;
+            this.people_tb_children.Name = "people_tb_children";
+            this.people_tb_children.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.people_tb_children.PasswordChar = false;
+            this.people_tb_children.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.people_tb_children.PlaceholderText = "Фамилия И. О. родителя";
+            this.people_tb_children.Size = new System.Drawing.Size(178, 28);
+            this.people_tb_children.TabIndex = 20;
+            this.people_tb_children.Texts = "";
+            this.people_tb_children.UnderlinedStyle = false;
             // 
-            // rjTextBox5
+            // parrent_tb_children
             // 
-            this.rjTextBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox5.BorderColor = System.Drawing.Color.Green;
-            this.rjTextBox5.BorderFocusColor = System.Drawing.Color.Lime;
-            this.rjTextBox5.BorderRadius = 0;
-            this.rjTextBox5.BorderSize = 2;
-            this.rjTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjTextBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox5.Location = new System.Drawing.Point(7, 151);
-            this.rjTextBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox5.Multiline = false;
-            this.rjTextBox5.Name = "rjTextBox5";
-            this.rjTextBox5.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox5.PasswordChar = false;
-            this.rjTextBox5.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox5.PlaceholderText = "Ребенок";
-            this.rjTextBox5.Size = new System.Drawing.Size(178, 28);
-            this.rjTextBox5.TabIndex = 20;
-            this.rjTextBox5.Texts = "";
-            this.rjTextBox5.UnderlinedStyle = false;
+            this.parrent_tb_children.BackColor = System.Drawing.SystemColors.Window;
+            this.parrent_tb_children.BorderColor = System.Drawing.Color.Green;
+            this.parrent_tb_children.BorderFocusColor = System.Drawing.Color.Lime;
+            this.parrent_tb_children.BorderRadius = 0;
+            this.parrent_tb_children.BorderSize = 2;
+            this.parrent_tb_children.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.parrent_tb_children.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.parrent_tb_children.Location = new System.Drawing.Point(6, 125);
+            this.parrent_tb_children.Margin = new System.Windows.Forms.Padding(4);
+            this.parrent_tb_children.Multiline = false;
+            this.parrent_tb_children.Name = "parrent_tb_children";
+            this.parrent_tb_children.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.parrent_tb_children.PasswordChar = false;
+            this.parrent_tb_children.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.parrent_tb_children.PlaceholderText = "Фамилия И. О. ребенка";
+            this.parrent_tb_children.Size = new System.Drawing.Size(178, 28);
+            this.parrent_tb_children.TabIndex = 19;
+            this.parrent_tb_children.Texts = "";
+            this.parrent_tb_children.UnderlinedStyle = false;
             // 
-            // parrent_children_tb
+            // parrent_tb_class
             // 
-            this.parrent_children_tb.BackColor = System.Drawing.SystemColors.Window;
-            this.parrent_children_tb.BorderColor = System.Drawing.Color.Green;
-            this.parrent_children_tb.BorderFocusColor = System.Drawing.Color.Lime;
-            this.parrent_children_tb.BorderRadius = 0;
-            this.parrent_children_tb.BorderSize = 2;
-            this.parrent_children_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.parrent_children_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.parrent_children_tb.Location = new System.Drawing.Point(7, 115);
-            this.parrent_children_tb.Margin = new System.Windows.Forms.Padding(4);
-            this.parrent_children_tb.Multiline = false;
-            this.parrent_children_tb.Name = "parrent_children_tb";
-            this.parrent_children_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.parrent_children_tb.PasswordChar = false;
-            this.parrent_children_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.parrent_children_tb.PlaceholderText = "Ребенок";
-            this.parrent_children_tb.Size = new System.Drawing.Size(178, 28);
-            this.parrent_children_tb.TabIndex = 19;
-            this.parrent_children_tb.Texts = "";
-            this.parrent_children_tb.UnderlinedStyle = false;
+            this.parrent_tb_class.BackColor = System.Drawing.SystemColors.Window;
+            this.parrent_tb_class.BorderColor = System.Drawing.Color.Green;
+            this.parrent_tb_class.BorderFocusColor = System.Drawing.Color.Lime;
+            this.parrent_tb_class.BorderRadius = 0;
+            this.parrent_tb_class.BorderSize = 2;
+            this.parrent_tb_class.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.parrent_tb_class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.parrent_tb_class.Location = new System.Drawing.Point(7, 85);
+            this.parrent_tb_class.Margin = new System.Windows.Forms.Padding(4);
+            this.parrent_tb_class.Multiline = false;
+            this.parrent_tb_class.Name = "parrent_tb_class";
+            this.parrent_tb_class.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.parrent_tb_class.PasswordChar = false;
+            this.parrent_tb_class.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.parrent_tb_class.PlaceholderText = "Класс";
+            this.parrent_tb_class.Size = new System.Drawing.Size(178, 28);
+            this.parrent_tb_class.TabIndex = 18;
+            this.parrent_tb_class.Texts = "";
+            this.parrent_tb_class.UnderlinedStyle = false;
             // 
-            // parrent_class_tb
+            // parent_b_go
             // 
-            this.parrent_class_tb.BackColor = System.Drawing.SystemColors.Window;
-            this.parrent_class_tb.BorderColor = System.Drawing.Color.Green;
-            this.parrent_class_tb.BorderFocusColor = System.Drawing.Color.Lime;
-            this.parrent_class_tb.BorderRadius = 0;
-            this.parrent_class_tb.BorderSize = 2;
-            this.parrent_class_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.parrent_class_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.parrent_class_tb.Location = new System.Drawing.Point(7, 79);
-            this.parrent_class_tb.Margin = new System.Windows.Forms.Padding(4);
-            this.parrent_class_tb.Multiline = false;
-            this.parrent_class_tb.Name = "parrent_class_tb";
-            this.parrent_class_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.parrent_class_tb.PasswordChar = false;
-            this.parrent_class_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.parrent_class_tb.PlaceholderText = "Класс";
-            this.parrent_class_tb.Size = new System.Drawing.Size(178, 28);
-            this.parrent_class_tb.TabIndex = 18;
-            this.parrent_class_tb.Texts = "";
-            this.parrent_class_tb.UnderlinedStyle = false;
+            this.parent_b_go.BackColor = System.Drawing.Color.Green;
+            this.parent_b_go.BackgroundColor = System.Drawing.Color.Green;
+            this.parent_b_go.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.parent_b_go.BorderRadius = 10;
+            this.parent_b_go.BorderSize = 0;
+            this.parent_b_go.FlatAppearance.BorderSize = 0;
+            this.parent_b_go.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.parent_b_go.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.parent_b_go.ForeColor = System.Drawing.Color.White;
+            this.parent_b_go.Location = new System.Drawing.Point(6, 208);
+            this.parent_b_go.Name = "parent_b_go";
+            this.parent_b_go.Size = new System.Drawing.Size(179, 34);
+            this.parent_b_go.TabIndex = 17;
+            this.parent_b_go.Text = "Выполнить";
+            this.parent_b_go.TextColor = System.Drawing.Color.White;
+            this.parent_b_go.UseVisualStyleBackColor = false;
+            this.parent_b_go.Click += new System.EventHandler(this.parent_b_go_Click);
             // 
-            // rjButton4
+            // parrent_tb_job
             // 
-            this.rjButton4.BackColor = System.Drawing.Color.Green;
-            this.rjButton4.BackgroundColor = System.Drawing.Color.Green;
-            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton4.BorderRadius = 10;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(6, 208);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(179, 34);
-            this.rjButton4.TabIndex = 17;
-            this.rjButton4.Text = "Выполнить";
-            this.rjButton4.TextColor = System.Drawing.Color.White;
-            this.rjButton4.UseVisualStyleBackColor = false;
+            this.parrent_tb_job.BackColor = System.Drawing.SystemColors.Window;
+            this.parrent_tb_job.BorderColor = System.Drawing.Color.Green;
+            this.parrent_tb_job.BorderFocusColor = System.Drawing.Color.Lime;
+            this.parrent_tb_job.BorderRadius = 0;
+            this.parrent_tb_job.BorderSize = 2;
+            this.parrent_tb_job.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.parrent_tb_job.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.parrent_tb_job.Location = new System.Drawing.Point(7, 46);
+            this.parrent_tb_job.Margin = new System.Windows.Forms.Padding(4);
+            this.parrent_tb_job.Multiline = false;
+            this.parrent_tb_job.Name = "parrent_tb_job";
+            this.parrent_tb_job.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.parrent_tb_job.PasswordChar = false;
+            this.parrent_tb_job.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.parrent_tb_job.PlaceholderText = "Место работы";
+            this.parrent_tb_job.Size = new System.Drawing.Size(178, 28);
+            this.parrent_tb_job.TabIndex = 4;
+            this.parrent_tb_job.Texts = "";
+            this.parrent_tb_job.UnderlinedStyle = false;
             // 
-            // parrentCon_chb
+            // parrent_tb_id
             // 
-            this.parrentCon_chb.AutoSize = true;
-            this.parrentCon_chb.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.parrentCon_chb.Location = new System.Drawing.Point(140, 183);
-            this.parrentCon_chb.MinimumSize = new System.Drawing.Size(45, 22);
-            this.parrentCon_chb.Name = "parrentCon_chb";
-            this.parrentCon_chb.OffBackColor = System.Drawing.Color.SlateGray;
-            this.parrentCon_chb.OffToggleColor = System.Drawing.Color.White;
-            this.parrentCon_chb.OnBackColor = System.Drawing.Color.Green;
-            this.parrentCon_chb.OnToggleColor = System.Drawing.Color.White;
-            this.parrentCon_chb.Size = new System.Drawing.Size(45, 22);
-            this.parrentCon_chb.TabIndex = 16;
-            this.parrentCon_chb.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(23, 187);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Родительский ком-ет";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // parrent_job_tb
-            // 
-            this.parrent_job_tb.BackColor = System.Drawing.SystemColors.Window;
-            this.parrent_job_tb.BorderColor = System.Drawing.Color.Green;
-            this.parrent_job_tb.BorderFocusColor = System.Drawing.Color.Lime;
-            this.parrent_job_tb.BorderRadius = 0;
-            this.parrent_job_tb.BorderSize = 2;
-            this.parrent_job_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.parrent_job_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.parrent_job_tb.Location = new System.Drawing.Point(7, 43);
-            this.parrent_job_tb.Margin = new System.Windows.Forms.Padding(4);
-            this.parrent_job_tb.Multiline = false;
-            this.parrent_job_tb.Name = "parrent_job_tb";
-            this.parrent_job_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.parrent_job_tb.PasswordChar = false;
-            this.parrent_job_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.parrent_job_tb.PlaceholderText = "Место работы";
-            this.parrent_job_tb.Size = new System.Drawing.Size(178, 28);
-            this.parrent_job_tb.TabIndex = 4;
-            this.parrent_job_tb.Texts = "";
-            this.parrent_job_tb.UnderlinedStyle = false;
-            // 
-            // parrent_id_tb
-            // 
-            this.parrent_id_tb.BackColor = System.Drawing.SystemColors.Window;
-            this.parrent_id_tb.BorderColor = System.Drawing.Color.Green;
-            this.parrent_id_tb.BorderFocusColor = System.Drawing.Color.Lime;
-            this.parrent_id_tb.BorderRadius = 0;
-            this.parrent_id_tb.BorderSize = 2;
-            this.parrent_id_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.parrent_id_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.parrent_id_tb.Location = new System.Drawing.Point(7, 7);
-            this.parrent_id_tb.Margin = new System.Windows.Forms.Padding(4);
-            this.parrent_id_tb.Multiline = false;
-            this.parrent_id_tb.Name = "parrent_id_tb";
-            this.parrent_id_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.parrent_id_tb.PasswordChar = false;
-            this.parrent_id_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.parrent_id_tb.PlaceholderText = "Id";
-            this.parrent_id_tb.Size = new System.Drawing.Size(178, 28);
-            this.parrent_id_tb.TabIndex = 3;
-            this.parrent_id_tb.Texts = "";
-            this.parrent_id_tb.UnderlinedStyle = false;
+            this.parrent_tb_id.BackColor = System.Drawing.SystemColors.Window;
+            this.parrent_tb_id.BorderColor = System.Drawing.Color.Green;
+            this.parrent_tb_id.BorderFocusColor = System.Drawing.Color.Lime;
+            this.parrent_tb_id.BorderRadius = 0;
+            this.parrent_tb_id.BorderSize = 2;
+            this.parrent_tb_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.parrent_tb_id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.parrent_tb_id.Location = new System.Drawing.Point(7, 7);
+            this.parrent_tb_id.Margin = new System.Windows.Forms.Padding(4);
+            this.parrent_tb_id.Multiline = false;
+            this.parrent_tb_id.Name = "parrent_tb_id";
+            this.parrent_tb_id.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.parrent_tb_id.PasswordChar = false;
+            this.parrent_tb_id.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.parrent_tb_id.PlaceholderText = "Id";
+            this.parrent_tb_id.Size = new System.Drawing.Size(178, 28);
+            this.parrent_tb_id.TabIndex = 3;
+            this.parrent_tb_id.Texts = "";
+            this.parrent_tb_id.UnderlinedStyle = false;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.enter_rel_b);
-            this.tabPage2.Controls.Add(this.parCom_b);
+            this.tabPage2.Controls.Add(this.parent_b_pwoc);
             this.tabPage2.Controls.Add(this.large_famile_b);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -868,25 +836,27 @@ namespace school
             this.enter_rel_b.Text = "Установить родтсвенную связь";
             this.enter_rel_b.TextColor = System.Drawing.Color.White;
             this.enter_rel_b.UseVisualStyleBackColor = false;
+            this.enter_rel_b.Click += new System.EventHandler(this.enter_rel_b_Click);
             // 
-            // parCom_b
+            // parent_b_pwoc
             // 
-            this.parCom_b.BackColor = System.Drawing.Color.Green;
-            this.parCom_b.BackgroundColor = System.Drawing.Color.Green;
-            this.parCom_b.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.parCom_b.BorderRadius = 10;
-            this.parCom_b.BorderSize = 0;
-            this.parCom_b.FlatAppearance.BorderSize = 0;
-            this.parCom_b.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.parCom_b.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.parCom_b.ForeColor = System.Drawing.Color.White;
-            this.parCom_b.Location = new System.Drawing.Point(6, 46);
-            this.parCom_b.Name = "parCom_b";
-            this.parCom_b.Size = new System.Drawing.Size(180, 71);
-            this.parCom_b.TabIndex = 13;
-            this.parCom_b.Text = "Родительский коммитет старших классов";
-            this.parCom_b.TextColor = System.Drawing.Color.White;
-            this.parCom_b.UseVisualStyleBackColor = false;
+            this.parent_b_pwoc.BackColor = System.Drawing.Color.Green;
+            this.parent_b_pwoc.BackgroundColor = System.Drawing.Color.Green;
+            this.parent_b_pwoc.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.parent_b_pwoc.BorderRadius = 10;
+            this.parent_b_pwoc.BorderSize = 0;
+            this.parent_b_pwoc.FlatAppearance.BorderSize = 0;
+            this.parent_b_pwoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.parent_b_pwoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.parent_b_pwoc.ForeColor = System.Drawing.Color.White;
+            this.parent_b_pwoc.Location = new System.Drawing.Point(6, 46);
+            this.parent_b_pwoc.Name = "parent_b_pwoc";
+            this.parent_b_pwoc.Size = new System.Drawing.Size(180, 71);
+            this.parent_b_pwoc.TabIndex = 13;
+            this.parent_b_pwoc.Text = "Родители с неустановленными связями";
+            this.parent_b_pwoc.TextColor = System.Drawing.Color.White;
+            this.parent_b_pwoc.UseVisualStyleBackColor = false;
+            this.parent_b_pwoc.Click += new System.EventHandler(this.parent_b_pwoc_Click);
             // 
             // large_famile_b
             // 
@@ -906,6 +876,7 @@ namespace school
             this.large_famile_b.Text = "Многодетные";
             this.large_famile_b.TextColor = System.Drawing.Color.White;
             this.large_famile_b.UseVisualStyleBackColor = false;
+            this.large_famile_b.Click += new System.EventHandler(this.large_famile_b_Click);
             // 
             // p_gp
             // 
@@ -937,6 +908,7 @@ namespace school
             this.purrents_delete_b.Text = "Удалить";
             this.purrents_delete_b.TextColor = System.Drawing.Color.White;
             this.purrents_delete_b.UseVisualStyleBackColor = false;
+            this.purrents_delete_b.Click += new System.EventHandler(this.purrents_delete_b_Click);
             // 
             // parrents_edit_b
             // 
@@ -956,6 +928,7 @@ namespace school
             this.parrents_edit_b.Text = "Редактировать";
             this.parrents_edit_b.TextColor = System.Drawing.Color.White;
             this.parrents_edit_b.UseVisualStyleBackColor = false;
+            this.parrents_edit_b.Click += new System.EventHandler(this.parrents_edit_b_Click);
             // 
             // parrents_add_b
             // 
@@ -975,6 +948,7 @@ namespace school
             this.parrents_add_b.Text = "Добавить";
             this.parrents_add_b.TextColor = System.Drawing.Color.WhiteSmoke;
             this.parrents_add_b.UseVisualStyleBackColor = false;
+            this.parrents_add_b.Click += new System.EventHandler(this.parrents_add_b_Click);
             // 
             // Parrent_dgv
             // 
@@ -991,6 +965,7 @@ namespace school
             this.employers.Controls.Add(this.tabControl2);
             this.employers.Controls.Add(this.e_gp);
             this.employers.Controls.Add(this.emplyers_dgv);
+            this.employers.ForeColor = System.Drawing.Color.Brown;
             this.employers.Location = new System.Drawing.Point(4, 24);
             this.employers.Name = "employers";
             this.employers.Size = new System.Drawing.Size(783, 439);
@@ -1344,6 +1319,7 @@ namespace school
             this.timeTable.Controls.Add(this.filter_timeTAble_gp);
             this.timeTable.Controls.Add(this.tt_gb);
             this.timeTable.Controls.Add(this.tt_dgv);
+            this.timeTable.ForeColor = System.Drawing.Color.OrangeRed;
             this.timeTable.Location = new System.Drawing.Point(4, 24);
             this.timeTable.Name = "timeTable";
             this.timeTable.Size = new System.Drawing.Size(783, 439);
@@ -1650,6 +1626,7 @@ namespace school
             this.Journal.Controls.Add(this.groupBox5);
             this.Journal.Controls.Add(this.j_gb);
             this.Journal.Controls.Add(this.J_DGV);
+            this.Journal.ForeColor = System.Drawing.Color.Purple;
             this.Journal.Location = new System.Drawing.Point(4, 24);
             this.Journal.Name = "Journal";
             this.Journal.Size = new System.Drawing.Size(783, 439);
@@ -1667,7 +1644,7 @@ namespace school
             this.groupBox5.Controls.Add(this.j_teacher_tb);
             this.groupBox5.Controls.Add(this.j_mark_to_tb);
             this.groupBox5.Controls.Add(this.j_sub_tb);
-            this.groupBox5.Controls.Add(this.j_filter_b);
+            this.groupBox5.Controls.Add(this.journal_b_go);
             this.groupBox5.Controls.Add(this.j_people_tb);
             this.groupBox5.Controls.Add(this.j_mark_from_tb);
             this.groupBox5.Controls.Add(this.j_id_tb);
@@ -1725,6 +1702,7 @@ namespace school
             this.dateTo.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dateTo.BorderSize = 0;
             this.dateTo.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTo.Enabled = false;
             this.dateTo.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTo.Location = new System.Drawing.Point(18, 235);
             this.dateTo.MinimumSize = new System.Drawing.Size(4, 35);
@@ -1740,6 +1718,7 @@ namespace school
             this.dateFrom.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dateFrom.BorderSize = 0;
             this.dateFrom.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateFrom.Enabled = false;
             this.dateFrom.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateFrom.Location = new System.Drawing.Point(18, 197);
             this.dateFrom.MinimumSize = new System.Drawing.Size(4, 35);
@@ -1816,25 +1795,25 @@ namespace school
             this.j_sub_tb.Texts = "";
             this.j_sub_tb.UnderlinedStyle = false;
             // 
-            // j_filter_b
+            // journal_b_go
             // 
-            this.j_filter_b.BackColor = System.Drawing.Color.Green;
-            this.j_filter_b.BackgroundColor = System.Drawing.Color.Green;
-            this.j_filter_b.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.j_filter_b.BorderRadius = 10;
-            this.j_filter_b.BorderSize = 0;
-            this.j_filter_b.FlatAppearance.BorderSize = 0;
-            this.j_filter_b.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.j_filter_b.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.j_filter_b.ForeColor = System.Drawing.Color.White;
-            this.j_filter_b.Location = new System.Drawing.Point(138, 195);
-            this.j_filter_b.Name = "j_filter_b";
-            this.j_filter_b.Size = new System.Drawing.Size(53, 75);
-            this.j_filter_b.TabIndex = 22;
-            this.j_filter_b.Text = "Выполнить";
-            this.j_filter_b.TextColor = System.Drawing.Color.White;
-            this.j_filter_b.UseVisualStyleBackColor = false;
-            this.j_filter_b.Click += new System.EventHandler(this.rjButton2_Click);
+            this.journal_b_go.BackColor = System.Drawing.Color.Green;
+            this.journal_b_go.BackgroundColor = System.Drawing.Color.Green;
+            this.journal_b_go.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.journal_b_go.BorderRadius = 10;
+            this.journal_b_go.BorderSize = 0;
+            this.journal_b_go.FlatAppearance.BorderSize = 0;
+            this.journal_b_go.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.journal_b_go.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.journal_b_go.ForeColor = System.Drawing.Color.White;
+            this.journal_b_go.Location = new System.Drawing.Point(138, 195);
+            this.journal_b_go.Name = "journal_b_go";
+            this.journal_b_go.Size = new System.Drawing.Size(53, 75);
+            this.journal_b_go.TabIndex = 22;
+            this.journal_b_go.Text = "Выполнить";
+            this.journal_b_go.TextColor = System.Drawing.Color.White;
+            this.journal_b_go.UseVisualStyleBackColor = false;
+            this.journal_b_go.Click += new System.EventHandler(this.journal_b_go_Click);
             // 
             // j_people_tb
             // 
@@ -1987,6 +1966,7 @@ namespace school
             this.Events.Controls.Add(this.tabControl3);
             this.Events.Controls.Add(this.ev_gp);
             this.Events.Controls.Add(this.e_dgv);
+            this.Events.ForeColor = System.Drawing.Color.DarkCyan;
             this.Events.Location = new System.Drawing.Point(4, 24);
             this.Events.Name = "Events";
             this.Events.Size = new System.Drawing.Size(783, 439);
@@ -2517,7 +2497,6 @@ namespace school
             this.parrents.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.p_gp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Parrent_dgv)).EndInit();
@@ -2582,20 +2561,18 @@ namespace school
         private CustomControls.RJControls.RJButton parrents_add_b;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private CustomControls.RJControls.RJButton rjButton4;
-        private CustomControls.RJControls.RJToggleButton parrentCon_chb;
-        private System.Windows.Forms.Label label6;
-        private CustomControls.RJControls.RJTextBox parrent_job_tb;
-        private CustomControls.RJControls.RJTextBox parrent_id_tb;
+        private CustomControls.RJControls.RJButton parent_b_go;
+        private CustomControls.RJControls.RJTextBox parrent_tb_job;
+        private CustomControls.RJControls.RJTextBox parrent_tb_id;
         private System.Windows.Forms.TabPage tabPage2;
         private CustomControls.RJControls.RJButton large_famile_b;
         private CustomControls.RJControls.RJButton activists_b;
         private CustomControls.RJControls.RJButton best_students_b;
         private CustomControls.RJControls.RJButton bed_marks_p_b;
-        private CustomControls.RJControls.RJButton parCom_b;
+        private CustomControls.RJControls.RJButton parent_b_pwoc;
         private CustomControls.RJControls.RJButton enter_rel_b;
-        private CustomControls.RJControls.RJTextBox parrent_children_tb;
-        private CustomControls.RJControls.RJTextBox parrent_class_tb;
+        private CustomControls.RJControls.RJTextBox parrent_tb_children;
+        private CustomControls.RJControls.RJTextBox parrent_tb_class;
         private System.Windows.Forms.TabPage employers;
         private System.Windows.Forms.DataGridView emplyers_dgv;
         private System.Windows.Forms.GroupBox e_gp;
@@ -2610,7 +2587,6 @@ namespace school
         private CustomControls.RJControls.RJTextBox empl_tb;
         private System.Windows.Forms.TabPage tabPage4;
         private CustomControls.RJControls.RJButton much_ex_b;
-        private CustomControls.RJControls.RJTextBox rjTextBox5;
         private RJDatePicker rjDatePicker1;
         private RJDatePicker rjDatePicker2;
         private CustomControls.RJControls.RJTextBox position_tb;
@@ -2622,7 +2598,6 @@ namespace school
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox class_ruk_filtr_chb;
         private System.Windows.Forms.CheckBox prof_filtr_chb;
-        private System.Windows.Forms.CheckBox parCon_filtr_chb;
         private System.Windows.Forms.TabPage timeTable;
         private System.Windows.Forms.DataGridView tt_dgv;
         private System.Windows.Forms.GroupBox tt_gb;
@@ -2649,7 +2624,7 @@ namespace school
         private CustomControls.RJControls.RJTextBox j_teacher_tb;
         private CustomControls.RJControls.RJTextBox j_mark_to_tb;
         private CustomControls.RJControls.RJTextBox j_sub_tb;
-        private CustomControls.RJControls.RJButton j_filter_b;
+        private CustomControls.RJControls.RJButton journal_b_go;
         private CustomControls.RJControls.RJTextBox j_people_tb;
         private CustomControls.RJControls.RJTextBox j_mark_from_tb;
         private CustomControls.RJControls.RJTextBox j_id_tb;
@@ -2699,5 +2674,6 @@ namespace school
         private CustomControls.RJControls.RJButton B_runSqlReauest;
         private CustomControls.RJControls.RJTextBox tb_SQLrequest;
         private CustomControls.RJControls.RJButton ClassRuk_b;
+        private CustomControls.RJControls.RJTextBox people_tb_children;
     }
 }

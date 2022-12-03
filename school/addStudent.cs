@@ -257,6 +257,8 @@ namespace school
 
                         cb_1.Visible = false;
                         tb_4.Visible = false;
+                        b_next.Enabled = true;
+                        l_final.Visible = false;
 
                         break;
                     }
@@ -281,7 +283,7 @@ namespace school
                             b_next.Text = "Связать";
                             l_final.Visible = true;
                             l_final.Text = $"Вы только что завершили регистрацию учащегося {newStudier.LastName} {newStudier.Name[0]}. {newStudier.FatherName[0]}. " +
-                                $"и занесли его в список его в список установленного класса. Теперь необходимо создать аккаунт его родителю, а затем установить " +
+                                $"и занесли его в список установленного класса. Теперь необходимо создать аккаунт его родителю, а затем установить " +
                                 $"им родственные связи. Если вы можете уже это сделать то нажмите на кнопку связать. Если вы не можете пока что " +
                                 $"установить родственную связь просто закройте форму";
                         }
@@ -300,7 +302,7 @@ namespace school
                             b_next.Enabled = false;
                             l_final.Visible = true;
                             l_final.Text = $"Нам неудалось зарегестрировать {newStudier.LastName} {newStudier.Name[0]}. {newStudier.FatherName[0]}. " +
-                                $"Попробуйте снова или попросите помощи у инженера программиста учреждения!";
+                                $"Попробуйте снова или попросите помощи у инженера-программиста учреждения!";
                             mode--;
                         }
                         break;
@@ -457,7 +459,7 @@ namespace school
                     }
                 case 4:
                     {
-                        var r = Regex.Match(tb_3.Texts, @"^[A-z0-9]{3,}$");
+                        var r = Regex.Match(tb_3.Texts, @"^[A-z0-9]{8,}$");
                         if (r.Success)
                         {
                             tb_3.BorderColor = Color.Green;

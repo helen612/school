@@ -41,15 +41,15 @@ namespace school
                     somePerson.password = sqlDataReader["Password"].ToString();
                     somePerson.lvl = Convert.ToInt32(sqlDataReader["level"]);
                 }
-                sqlDataReader.Close();
-                sqlConnection.Close();
+                
 
             }
             catch (Exception ex)
             {
                 somePerson.username = ex.Message;
             }
-
+            sqlDataReader.Close();
+            sqlConnection.Close();
             return somePerson;
         }
         public string getClassOfStudent(int id)
@@ -68,15 +68,15 @@ namespace school
                 {
                     classOfPeople = sqlDataReader["Название"].ToString();
                 }
-                sqlDataReader.Close();
-                sqlConnection.Close();
+                
 
             }
             catch (Exception ex)
             {
                 classOfPeople = ex.Message;
             }
-
+            sqlDataReader.Close();
+            sqlConnection.Close();
             return classOfPeople;
         }
         public List<People> getClassForParrent(int id)
@@ -114,13 +114,14 @@ namespace school
 
                     }
                 }
-                sqlDataReader.Close();
-                sqlConnection.Close();
+                
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            sqlDataReader.Close();
+            sqlConnection.Close(); 
             return classes;
         }
         public List<Person> GetPersons()
@@ -153,13 +154,14 @@ namespace school
                         persons.Add(person);
                     }
                 }
-                sqlDataReader.Close();
-                sqlConnection.Close();
+                
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            sqlDataReader.Close();
+            sqlConnection.Close(); 
             return persons;
         }
         public DataSet GetPeoples(string id, string clas, string fio, int stateS, int stateSOP)
@@ -202,13 +204,13 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                
                 adapter.Fill(result);
-                sqlConnection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public DataSet getTable(string tableName)
@@ -221,13 +223,14 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter($"select * from {tableName}", sqlConnection);
                 // Заполняем Dataset
                 adapter.Fill(result);
-                sqlConnection.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public List<string> getListTables()
@@ -244,8 +247,7 @@ namespace school
                 {
                    ListTables.Add(sqlDataReader["name"].ToString());
                 }
-                sqlDataReader.Close();
-                sqlConnection.Close();
+                
 
             }
             catch (Exception ex)
@@ -253,7 +255,8 @@ namespace school
                 ListTables.Add(ex.Message);
             }
 
-
+            sqlDataReader.Close();
+            sqlConnection.Close();
             return ListTables;
         }
         public DataSet getSQLReauest(string sql)
@@ -266,13 +269,13 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter($"{sql}", sqlConnection);
                 // Заполняем Dataset
                     adapter.Fill(result);
-                sqlConnection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public DataSet getActivist()
@@ -288,13 +291,14 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
-                sqlConnection.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
 
@@ -311,13 +315,14 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
-                sqlConnection.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public DataSet getLaggingPeoples(DateTime from, DateTime to)
@@ -345,13 +350,13 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
-                sqlConnection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public DataSet getTimeTable(string id, string clas, string kab, string day, string from, string to, string subj, string teacher)
@@ -361,7 +366,7 @@ namespace school
             SqlParameter par1 = new SqlParameter
             {
                 ParameterName = "@id",
-                Value = (id == "") ? "%" : id 
+                Value = (id == "") ? "%" : id
             };
             SqlParameter par2 = new SqlParameter
             {
@@ -411,13 +416,13 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 adapter.Fill(result);
-                sqlConnection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public DataSet getJournal(string id, string clas, string sub, string people, string teacher, DateTime timeFrom, DateTime timeTo, 
@@ -492,13 +497,13 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 adapter.Fill(result);
-                sqlConnection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
 
             return result;
         }
@@ -518,14 +523,14 @@ namespace school
                 {
                     peopleFIO = sqlDataReader["FIO"].ToString();
                 }
-                sqlDataReader.Close();
-                sqlConnection.Close();
 
             }
             catch (Exception ex)
             {
                 peopleFIO = ex.Message;
             }
+            sqlDataReader.Close();
+            sqlConnection.Close();
 
             return peopleFIO;
         }
@@ -570,13 +575,13 @@ namespace school
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 adapter.Fill(result);
-                sqlConnection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
 
             return result;
         }
@@ -593,13 +598,14 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
-                sqlConnection.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public DataSet GetMonfeeders()
@@ -615,13 +621,14 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
-                sqlConnection.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public DataSet getCLassRuk()
@@ -637,13 +644,13 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
-                sqlConnection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public DataSet getClasses()
@@ -659,13 +666,13 @@ namespace school
 
                 // Заполняем Dataset
                 adapter.Fill(result);
-                sqlConnection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = null;
             }
+            sqlConnection.Close();
             return result;
         }
         public int addStudier(RegStudier studier)
@@ -720,14 +727,14 @@ namespace school
                 command.ExecuteNonQuery();
                 result = Convert.ToInt32(command.Parameters["@id"].Value);
 
-                sqlConnection.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 result = -1;
             }
-
+            sqlConnection.Close();
             return result;
         }
         public void removeUser(int id)
@@ -738,13 +745,13 @@ namespace school
             {
                 sqlConnection.Open();
                 command.ExecuteNonQuery();
-                sqlConnection.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
+            sqlConnection.Close();
         }
         public void removeSomethink(int id, string tableName, string columnName)
         {
@@ -754,14 +761,310 @@ namespace school
             {
                 sqlConnection.Open();
                 command.ExecuteNonQuery();
-                sqlConnection.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            sqlConnection.Close();
+        }
+        public bool addRelationships(string idParent, string idPeople)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand($"AddRelationship", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@idPeople", idPeople);
+                SqlParameter p2 = new SqlParameter("@idParent", idParent);
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
 
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public bool editStudent(People p)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand($"editStudent", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@id", p.id);
+                SqlParameter p2 = new SqlParameter("@nameClass", p.nameClass );
+                SqlParameter p3 = new SqlParameter("@Lname", p.LastName);
+                SqlParameter p4 = new SqlParameter("@Name", p.Name);
+                SqlParameter p5 = new SqlParameter("@FatherName", p.FatherName);
+                SqlParameter p6 = new SqlParameter("@adress", p.address);
+                SqlParameter p7 = new SqlParameter("@starosta", p.starosta);
+                SqlParameter p8 = new SqlParameter("@sop", p.SOP);
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+                command.Parameters.Add(p6);
+                command.Parameters.Add(p7);
+                command.Parameters.Add(p8);
+
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public DataSet getParents(string id, string work, string clas, string  People, string parent)
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getParents", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter par1 = new SqlParameter
+            {
+                ParameterName = "@id",
+                Value = (id == "") ? "%" : id
+            };
+            SqlParameter par2 = new SqlParameter
+            {
+                ParameterName = "@work",
+                Value = "%" + work + "%"
+            };
+            SqlParameter par3 = new SqlParameter
+            {
+                ParameterName = "@nameClass",
+                Value = "%" + clas + "%"
+            };
+            SqlParameter par4 = new SqlParameter
+            {
+                ParameterName = "@FIOStudier",
+                Value = "%" + People + "%"
+            };
+            SqlParameter par6 = new SqlParameter
+            {
+                ParameterName = "@FIOParent",
+                Value = "%" + parent + "%"
+            };
+            command.Parameters.Add(par1);
+            command.Parameters.Add(par2);
+            command.Parameters.Add(par3);
+            command.Parameters.Add(par4);
+            command.Parameters.Add(par6);
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public DataSet getParentsWitoutConnection()
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getParentsWitoutConnection", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public DataSet getLargeFamily()
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getLargeFamily", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public int addParent(Parents parent)
+        {
+            SqlCommand command = new SqlCommand("addParent", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            int result = -1;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@username", parent.username);
+                SqlParameter p2 = new SqlParameter("@password", parent.password);
+                SqlParameter p3 = new SqlParameter("@level", "2");
+                SqlParameter p4 = new SqlParameter("@lastName", parent.LastName);
+                SqlParameter p5 = new SqlParameter("@name", parent.Name);
+                SqlParameter p6 = new SqlParameter("@FatherName", parent.FatherName);
+                SqlParameter p7 = new SqlParameter("@sex", parent.Sex);
+                SqlParameter p8 = new SqlParameter("@birthday", parent.Birthday);
+                SqlParameter p9 = new SqlParameter("@number", parent.Number);
+                SqlParameter p10 = new SqlParameter("@mail", parent.Mail);
+                SqlParameter p11 = new SqlParameter("@position", "Родитель");
+                SqlParameter p12 = new SqlParameter("@secretword", parent.SecretWord);
+                SqlParameter p13 = new SqlParameter("@work", parent.work);
+                SqlParameter id = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output // параметр выходной
+                };
+
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+                command.Parameters.Add(p6);
+                command.Parameters.Add(p7);
+                command.Parameters.Add(p8);
+                command.Parameters.Add(p9);
+                command.Parameters.Add(p10);
+                command.Parameters.Add(p11);
+                command.Parameters.Add(p12);
+                command.Parameters.Add(p13);
+                command.Parameters.Add(id);
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = Convert.ToInt32(command.Parameters["@id"].Value);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = -1;
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public void removeConnection(string idParent, string idPeople)
+        {
+            SqlCommand command = new SqlCommand("removeConnection", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@idParent", idParent);
+            SqlParameter p2 = new SqlParameter("@idPeople", idPeople);
+            command.Parameters.Add(p1);
+            command.Parameters.Add(p2);
+            try
+            {
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlConnection.Close();
+        }
+        public bool editParent(Parents p)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand($"editParent", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@id", p.id);
+                SqlParameter p2 = new SqlParameter("@LastName", p.LastName);
+                SqlParameter p3 = new SqlParameter("@name", p.Name);
+                SqlParameter p4 = new SqlParameter("@fatherName", p.FatherName);
+                SqlParameter p5 = new SqlParameter("@work", p.work);
+                SqlParameter p6 = new SqlParameter("@number", p.Number);
+                SqlParameter p7 = new SqlParameter("@mail", p.Mail);
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+                command.Parameters.Add(p6);
+                command.Parameters.Add(p7);
+
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public bool EditSomethink(string tableName, string keyvalue, string value, Dictionary<string, string> cols)
+        {
+            bool result = false;
+
+            string sqlcommand = $"Update {tableName} ";
+            foreach(var d in cols)
+            {
+                sqlcommand += $"set {d.Key} = {d.Value} ";
+            }
+            sqlcommand += $"where {keyvalue} = {value}";
+
+
+
+            SqlCommand command = new SqlCommand(sqlcommand, workWithDB.sqlConnection);
+            try
+            {
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlConnection.Close();
+            return result;
         }
     }
-    
+
 }
