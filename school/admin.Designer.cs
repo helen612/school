@@ -590,6 +590,7 @@ namespace school
             this.students_del_b.Text = "Удалить";
             this.students_del_b.TextColor = System.Drawing.Color.White;
             this.students_del_b.UseVisualStyleBackColor = false;
+            this.students_del_b.Click += new System.EventHandler(this.students_del_b_Click);
             // 
             // students_edit_b
             // 
@@ -1288,6 +1289,7 @@ namespace school
             this.employers_del_b.Text = "Удалить";
             this.employers_del_b.TextColor = System.Drawing.Color.White;
             this.employers_del_b.UseVisualStyleBackColor = false;
+            this.employers_del_b.Click += new System.EventHandler(this.employers_del_b_Click);
             // 
             // employers_edit_b
             // 
@@ -1593,6 +1595,7 @@ namespace school
             this.tt_del_b.Text = "Удалить";
             this.tt_del_b.TextColor = System.Drawing.Color.White;
             this.tt_del_b.UseVisualStyleBackColor = false;
+            this.tt_del_b.Click += new System.EventHandler(this.tt_del_b_Click);
             // 
             // tt_edit_b
             // 
@@ -1929,6 +1932,7 @@ namespace school
             this.j_del_b.Text = "Удалить";
             this.j_del_b.TextColor = System.Drawing.Color.White;
             this.j_del_b.UseVisualStyleBackColor = false;
+            this.j_del_b.Click += new System.EventHandler(this.j_del_b_Click);
             // 
             // j_edit_b
             // 

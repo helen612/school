@@ -730,6 +730,38 @@ namespace school
 
             return result;
         }
+        public void removeUser(int id)
+        {
+            SqlCommand command = new SqlCommand($"delete from LogIn where id = {id}", workWithDB.sqlConnection);
+
+            try
+            {
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        public void removeSomethink(int id, string tableName, string columnName)
+        {
+            SqlCommand command = new SqlCommand($"delete from [{tableName}] where [{columnName}] = {id}", workWithDB.sqlConnection);
+
+            try
+            {
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
     
 }

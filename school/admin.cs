@@ -24,6 +24,30 @@ namespace school
             var regex = Regex.Match(rjTextBox1.Texts, @"\A(?:[01][0-9]|2[0-3]):[0-5][0-9]\z");
             return regex.Success;
         }
+        private List<int> getSelectedId(object sender, string nameColumn)
+        {
+            List<int> sb = new List<int>();
+            
+            try
+            {
+                DataGridView dgv = sender as DataGridView;
+                Int32 selectedRowCount = dgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                if (selectedRowCount > 0)
+                {
+                    for (int i = 0; i < selectedRowCount; i++)
+                    {
+                        sb.Add(Convert.ToInt32(dgv.Rows[dgv.SelectedRows[i].Index].Cells[nameColumn].Value.ToString()));
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не могу понять какие строки выбраны!\nПодробнее: " + ex.Message, "Удаление");
+                sb = new List<int>();
+            }
+            return sb;
+        }
         public admin(Form1 form1, int level, int id)
         {
             InitializeComponent();
@@ -89,10 +113,7 @@ namespace school
                 rjTextBox1.ForeColor = Color.Green;
         }
 
-        private void admin_del_b_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void more_one_stavka_b_Click(object sender, EventArgs e)
         {
@@ -313,5 +334,53 @@ namespace school
             DataSet ds = workWithDB.getCLassRuk();
             if (ds != null) emplyers_dgv.DataSource = ds.Tables[0];
         }
+
+
+        #region delete buttons
+        private void students_del_b_Click(object sender, EventArgs e)
+        {
+            foreach (var v in getSelectedId(students_dgv,"id"))
+            {
+                workWithDB w = new workWithDB();
+                w.removeUser(v);
+            }
+        }
+
+        private void employers_del_b_Click(object sender, EventArgs e)
+        {
+            foreach (var v in getSelectedId(emplyers_dgv, "id"))
+            {
+                workWithDB w = new workWithDB();
+                w.removeUser(v);
+            }
+        }
+
+        private void tt_del_b_Click(object sender, EventArgs e)
+        {
+            foreach (var v in getSelectedId(tt_dgv, "Код"))
+            {
+                workWithDB w = new workWithDB();
+                w.removeUser(v);
+            }
+        }
+
+        private void j_del_b_Click(object sender, EventArgs e)
+        {
+            foreach (var v in getSelectedId(J_DGV, "Код"))
+            {
+                workWithDB w = new workWithDB();
+                w.removeUser(v);
+            }
+        }
+
+        private void admin_del_b_Click(object sender, EventArgs e)
+        {
+            foreach (var v in getSelectedId(admin_dgv, admin_dgv.Columns[0].HeaderText))
+            {
+                workWithDB w = new workWithDB();
+                w.removeSomethink(v, choose_table_cb.SelectedValue.ToString(), admin_dgv.Columns[0].HeaderText);
+            }
+        }
+        #endregion
     }
 }

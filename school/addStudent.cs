@@ -117,7 +117,7 @@ namespace school
                     }
                 case 5:
                     {
-                        add_resationships ar = new add_resationships();
+                        add_resationships ar = new add_resationships(-1,newStudier.id);
                         ar.ShowDialog();
                         this.Close();
                         return;

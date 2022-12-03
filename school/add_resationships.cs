@@ -16,5 +16,11 @@ namespace school
         {
             InitializeComponent();
         }
+        public add_resationships(int idParent, int idStudier)
+        {
+            InitializeComponent();
+            tb_id_child.Texts = idStudier == -1 ? "" : idStudier.ToString();
+            tb_id_parrent.Texts = idParent == -1 ? "" : idParent.ToString();
+        }
     }
 }

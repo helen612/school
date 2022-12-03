@@ -29,57 +29,57 @@ namespace school
         /// </summary>
         private void InitializeComponent()
         {
-            this.id_parrent_tb = new CustomControls.RJControls.RJTextBox();
-            this.id_child_tb = new CustomControls.RJControls.RJTextBox();
+            this.tb_id_parrent = new CustomControls.RJControls.RJTextBox();
+            this.tb_id_child = new CustomControls.RJControls.RJTextBox();
             this.parrent_l = new System.Windows.Forms.Label();
             this.child_l = new System.Windows.Forms.Label();
             this.set_relationships_b = new CustomControls.RJControls.RJButton();
             this.cansel_b = new CustomControls.RJControls.RJButton();
             this.SuspendLayout();
             // 
-            // id_parrent_tb
+            // tb_id_parrent
             // 
-            this.id_parrent_tb.BackColor = System.Drawing.SystemColors.Window;
-            this.id_parrent_tb.BorderColor = System.Drawing.Color.Green;
-            this.id_parrent_tb.BorderFocusColor = System.Drawing.Color.Lime;
-            this.id_parrent_tb.BorderRadius = 0;
-            this.id_parrent_tb.BorderSize = 2;
-            this.id_parrent_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.id_parrent_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.id_parrent_tb.Location = new System.Drawing.Point(13, 23);
-            this.id_parrent_tb.Margin = new System.Windows.Forms.Padding(4);
-            this.id_parrent_tb.Multiline = false;
-            this.id_parrent_tb.Name = "id_parrent_tb";
-            this.id_parrent_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.id_parrent_tb.PasswordChar = false;
-            this.id_parrent_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.id_parrent_tb.PlaceholderText = "Id родителя";
-            this.id_parrent_tb.Size = new System.Drawing.Size(177, 35);
-            this.id_parrent_tb.TabIndex = 5;
-            this.id_parrent_tb.Texts = "";
-            this.id_parrent_tb.UnderlinedStyle = false;
+            this.tb_id_parrent.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_id_parrent.BorderColor = System.Drawing.Color.Green;
+            this.tb_id_parrent.BorderFocusColor = System.Drawing.Color.Lime;
+            this.tb_id_parrent.BorderRadius = 0;
+            this.tb_id_parrent.BorderSize = 2;
+            this.tb_id_parrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_id_parrent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_id_parrent.Location = new System.Drawing.Point(13, 23);
+            this.tb_id_parrent.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_id_parrent.Multiline = false;
+            this.tb_id_parrent.Name = "tb_id_parrent";
+            this.tb_id_parrent.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tb_id_parrent.PasswordChar = false;
+            this.tb_id_parrent.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tb_id_parrent.PlaceholderText = "Id родителя";
+            this.tb_id_parrent.Size = new System.Drawing.Size(177, 35);
+            this.tb_id_parrent.TabIndex = 5;
+            this.tb_id_parrent.Texts = "";
+            this.tb_id_parrent.UnderlinedStyle = false;
             // 
-            // id_child_tb
+            // tb_id_child
             // 
-            this.id_child_tb.BackColor = System.Drawing.SystemColors.Window;
-            this.id_child_tb.BorderColor = System.Drawing.Color.Green;
-            this.id_child_tb.BorderFocusColor = System.Drawing.Color.Lime;
-            this.id_child_tb.BorderRadius = 0;
-            this.id_child_tb.BorderSize = 2;
-            this.id_child_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.id_child_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.id_child_tb.Location = new System.Drawing.Point(13, 81);
-            this.id_child_tb.Margin = new System.Windows.Forms.Padding(4);
-            this.id_child_tb.Multiline = false;
-            this.id_child_tb.Name = "id_child_tb";
-            this.id_child_tb.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.id_child_tb.PasswordChar = false;
-            this.id_child_tb.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.id_child_tb.PlaceholderText = "Id ребенка";
-            this.id_child_tb.Size = new System.Drawing.Size(177, 35);
-            this.id_child_tb.TabIndex = 6;
-            this.id_child_tb.Texts = "";
-            this.id_child_tb.UnderlinedStyle = false;
+            this.tb_id_child.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_id_child.BorderColor = System.Drawing.Color.Green;
+            this.tb_id_child.BorderFocusColor = System.Drawing.Color.Lime;
+            this.tb_id_child.BorderRadius = 0;
+            this.tb_id_child.BorderSize = 2;
+            this.tb_id_child.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_id_child.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_id_child.Location = new System.Drawing.Point(13, 81);
+            this.tb_id_child.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_id_child.Multiline = false;
+            this.tb_id_child.Name = "tb_id_child";
+            this.tb_id_child.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tb_id_child.PasswordChar = false;
+            this.tb_id_child.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tb_id_child.PlaceholderText = "Id ребенка";
+            this.tb_id_child.Size = new System.Drawing.Size(177, 35);
+            this.tb_id_child.TabIndex = 6;
+            this.tb_id_child.Texts = "";
+            this.tb_id_child.UnderlinedStyle = false;
             // 
             // parrent_l
             // 
@@ -146,8 +146,8 @@ namespace school
             this.Controls.Add(this.set_relationships_b);
             this.Controls.Add(this.child_l);
             this.Controls.Add(this.parrent_l);
-            this.Controls.Add(this.id_child_tb);
-            this.Controls.Add(this.id_parrent_tb);
+            this.Controls.Add(this.tb_id_child);
+            this.Controls.Add(this.tb_id_parrent);
             this.Name = "add_resationships";
             this.Text = "add_resationships";
             this.ResumeLayout(false);
@@ -157,8 +157,8 @@ namespace school
 
         #endregion
 
-        private CustomControls.RJControls.RJTextBox id_parrent_tb;
-        private CustomControls.RJControls.RJTextBox id_child_tb;
+        private CustomControls.RJControls.RJTextBox tb_id_parrent;
+        private CustomControls.RJControls.RJTextBox tb_id_child;
         private System.Windows.Forms.Label parrent_l;
         private System.Windows.Forms.Label child_l;
         private CustomControls.RJControls.RJButton set_relationships_b;
