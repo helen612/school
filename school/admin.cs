@@ -537,8 +537,16 @@ namespace school
             if (ds != null) emplyers_dgv.DataSource = ds.Tables[0];
         }
 
-        
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            PostControl pc = new PostControl();
+            pc.ShowDialog();
+        }
 
-
+        private void employers_add_b_Click(object sender, EventArgs e)
+        {
+            addEmployer ae = new addEmployer();
+            ae.ShowDialog();
+        }
     }
 }

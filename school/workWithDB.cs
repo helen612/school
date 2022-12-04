@@ -1065,6 +1065,163 @@ namespace school
             sqlConnection.Close();
             return result;
         }
+        public Dictionary<string, string> getPosts()
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            sqlConnection.Open();
+
+            SqlDataReader sqlDataReader = null;
+            SqlCommand command = new SqlCommand($"getPosts", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                sqlDataReader = command.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    d.Add(sqlDataReader["наименование"].ToString(), sqlDataReader["id"].ToString());
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlDataReader.Close();
+            sqlConnection.Close();
+            return d;
+        }
+        public bool addPost(string idEmployer, string idPost)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand($"addPost", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@idEmp", idEmployer);
+                SqlParameter p2 = new SqlParameter("@idPost", idPost);
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public bool removePost(string idEmployer, string idPost)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand($"removePost", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@idEmp", idEmployer);
+                SqlParameter p2 = new SqlParameter("@idPost", idPost);
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public bool addClassRuk(string idClass, string idEmp)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand("addClassRuk", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@idclass", idClass);
+            SqlParameter p2 = new SqlParameter("@idEmp", idEmp);
+            command.Parameters.Add(p1);
+            command.Parameters.Add(p2);
+            try
+            {
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return result;
+        }
+        public int addEmployer(Employer employer)
+        {
+            SqlCommand command = new SqlCommand("addEmployer", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            int result = -1;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@username", employer.username);
+                SqlParameter p2 = new SqlParameter("@password", employer.password);
+                SqlParameter p3 = new SqlParameter("@level", "3");
+                SqlParameter p4 = new SqlParameter("@lastName", employer.LastName);
+                SqlParameter p5 = new SqlParameter("@name", employer.Name);
+                SqlParameter p6 = new SqlParameter("@FatherName", employer.FatherName);
+                SqlParameter p7 = new SqlParameter("@sex", employer.Sex);
+                SqlParameter p8 = new SqlParameter("@birthday", employer.Birthday);
+                SqlParameter p9 = new SqlParameter("@number", employer.Number);
+                SqlParameter p10 = new SqlParameter("@mail", employer.Mail);
+                SqlParameter p11 = new SqlParameter("@position", "Сотрудник");
+                SqlParameter p12 = new SqlParameter("@secretword", employer.SecretWord);
+                SqlParameter p13 = new SqlParameter("@profS", employer.profs);
+                SqlParameter p14 = new SqlParameter("@dateofEmp", employer.dateOfEmpl);
+                SqlParameter id = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output // параметр выходной
+                };
+
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+                command.Parameters.Add(p6);
+                command.Parameters.Add(p7);
+                command.Parameters.Add(p8);
+                command.Parameters.Add(p9);
+                command.Parameters.Add(p10);
+                command.Parameters.Add(p11);
+                command.Parameters.Add(p12);
+                command.Parameters.Add(p13);
+                command.Parameters.Add(p14);
+                command.Parameters.Add(id);
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = Convert.ToInt32(command.Parameters["@id"].Value);
+                sqlConnection.Close();
+                if (employer.idclass != -1)
+                {
+                    addClassRuk(employer.idclass.ToString(), result.ToString());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = -1;
+                sqlConnection.Close();
+            }
+            
+            return result;
+        }
+
     }
 
 }

@@ -105,3 +105,5 @@ E:\work\school\school\obj\Debug\net5.0-windows\school.pdb
 E:\work\school\school\obj\Debug\net5.0-windows\school.genruntimeconfig.cache
 E:\work\school\school\obj\Debug\net5.0-windows\school.addStudent.resources
 E:\work\school\school\obj\Debug\net5.0-windows\school.AddParent.resources
+E:\work\school\school\obj\Debug\net5.0-windows\school.PostControl.resources
+E:\work\school\school\obj\Debug\net5.0-windows\school.addEmployer.resources
