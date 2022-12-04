@@ -1196,6 +1196,7 @@ namespace school
             this.rjButton4.Text = "Назначить классного рук";
             this.rjButton4.TextColor = System.Drawing.Color.White;
             this.rjButton4.UseVisualStyleBackColor = false;
+            this.rjButton4.Click += new System.EventHandler(this.rjButton4_Click);
             // 
             // rjButton1
             // 

@@ -110,3 +110,15 @@ E:\work\school\school\obj\Debug\net5.0-windows\school.addEmployer.resources
 E:\work\school\school\obj\Debug\net5.0-windows\school.TimeTable.resources
 E:\work\school\school\obj\Debug\net5.0-windows\school.addMark.resources
 E:\work\school\school\obj\Debug\net5.0-windows\school.addEvent.resources
+E:\work\school\school\bin\Debug\net5.0-windows\EPPlus.dll
+E:\work\school\school\bin\Debug\net5.0-windows\EPPlus.Interfaces.dll
+E:\work\school\school\bin\Debug\net5.0-windows\EPPlus.System.Drawing.dll
+E:\work\school\school\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.dll
+E:\work\school\school\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\work\school\school\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+E:\work\school\school\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Json.dll
+E:\work\school\school\bin\Debug\net5.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\work\school\school\bin\Debug\net5.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+E:\work\school\school\bin\Debug\net5.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+E:\work\school\school\bin\Debug\net5.0-windows\Microsoft.Extensions.Primitives.dll
+E:\work\school\school\bin\Debug\net5.0-windows\Microsoft.IO.RecyclableMemoryStream.dll

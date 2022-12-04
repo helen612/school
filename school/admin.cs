@@ -687,5 +687,11 @@ namespace school
             }
             rjButton2_Click(null,null);
         }
+
+        private void rjButton4_Click(object sender, EventArgs e)
+        {
+            workWithDocs wd = new workWithDocs();
+            wd.CreateStatementsChange("example", new Person(1,"Кригин","Кирилл","Андреевич","Мужской",DateTime.Now,"+375(33)640-43-35","crazy2tedoglove@gmail.com","Сотрудник","Слово",""));
+        }
     }
 }
