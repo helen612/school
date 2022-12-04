@@ -1336,6 +1336,266 @@ namespace school
             sqlConnection.Close();
             return d;
         }
+        public Dictionary<string, string> getScObjects()
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            sqlConnection.Open();
+
+            SqlDataReader sqlDataReader = null;
+            SqlCommand command = new SqlCommand($"getScObjects", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                sqlDataReader = command.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    d.Add(sqlDataReader["название предмета"].ToString(), sqlDataReader["Код предмета"].ToString());
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlDataReader.Close();
+            sqlConnection.Close();
+            return d;
+        }
+        public Dictionary<string, string> getCabinets()
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            sqlConnection.Open();
+
+            SqlDataReader sqlDataReader = null;
+            SqlCommand command = new SqlCommand($"getCabinet", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                sqlDataReader = command.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    d.Add(sqlDataReader["Номер"].ToString(), sqlDataReader["Код кабинета"].ToString());
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlDataReader.Close();
+            sqlConnection.Close();
+            return d;
+        }
+        public bool addTimeTable(string day, string ring, string classname, string Scobject, string idteacher, string cabinet)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand("addTimeTable", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@day", day);
+                SqlParameter p2 = new SqlParameter("@ring", ring);
+                SqlParameter p3 = new SqlParameter("@clas", classname);
+                SqlParameter p4 = new SqlParameter("@ScObj", Scobject);
+                SqlParameter p5 = new SqlParameter("@idTeach", idteacher);
+                SqlParameter p6 = new SqlParameter("@cabinet", cabinet);
+
+
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+                command.Parameters.Add(p6);
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public bool updateTimeTable(string id, string day, string ring, string classname, string Scobject, string idteacher, string cabinet)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand("updateTimeTable", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@idDay", day);
+                SqlParameter p2 = new SqlParameter("@idRing", ring);
+                SqlParameter p3 = new SqlParameter("@idClass", classname);
+                SqlParameter p4 = new SqlParameter("@idScObj", Scobject);
+                SqlParameter p5 = new SqlParameter("@idTeacher", idteacher);
+                SqlParameter p6 = new SqlParameter("@idClassRoom", cabinet);
+                SqlParameter p7 = new SqlParameter("@id", id);
+
+
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+                command.Parameters.Add(p6);
+                command.Parameters.Add(p7);
+
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public bool updateMark(string idMark, string newMark)
+        {
+            bool result = false;
+
+            SqlCommand command = new SqlCommand("updateMark", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@idMark", idMark);
+                SqlParameter p2 = new SqlParameter("@newMark", newMark);
+
+
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            sqlConnection.Close();
+
+            return result;
+        }
+        public bool addMark(string idStudier, string idScobj, string mark, string idTeacher)
+        {
+            bool result = false;
+
+            SqlCommand command = new SqlCommand("addMark", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@idStudier", idStudier);
+                SqlParameter p2 = new SqlParameter("@idScobj", idScobj);
+                SqlParameter p3 = new SqlParameter("@mark", mark);
+                SqlParameter p4 = new SqlParameter("@idTeacher", idTeacher);
+                SqlParameter p5 = new SqlParameter("@date", DateTime.Now);
+
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            sqlConnection.Close();
+
+            return result;
+        }
+        public bool addEvent(string name, DateTime dt, string time, string len, string place)
+        {
+            bool result = false;
+
+            SqlCommand command = new SqlCommand("addEvent", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@name", name);
+                SqlParameter p2 = new SqlParameter("@dt", dt);
+                SqlParameter p3 = new SqlParameter("@time", time);
+                SqlParameter p4 = new SqlParameter("@len", len);
+                SqlParameter p5 = new SqlParameter("@place", place);
+
+
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            sqlConnection.Close();
+
+            return result;
+        }
+        public bool updateEvent(string id, string name, string dt, string time, string len, string place)
+        {
+            bool result = false;
+
+            SqlCommand command = new SqlCommand("updateEvent", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            try
+            {
+                SqlParameter p1 = new SqlParameter("@name", name);
+                SqlParameter p2 = new SqlParameter("@dt", dt);
+                SqlParameter p3 = new SqlParameter("@time", time);
+                SqlParameter p4 = new SqlParameter("@len", len);
+                SqlParameter p5 = new SqlParameter("@place", place);
+                SqlParameter p6 = new SqlParameter("@id", id);
+
+
+                command.Parameters.Add(p1);
+                command.Parameters.Add(p2);
+                command.Parameters.Add(p3);
+                command.Parameters.Add(p4);
+                command.Parameters.Add(p5);
+                command.Parameters.Add(p6);
+
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            sqlConnection.Close();
+
+            return result;
+        }
     }
 
 }

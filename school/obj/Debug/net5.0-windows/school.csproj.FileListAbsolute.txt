@@ -108,3 +108,5 @@ E:\work\school\school\obj\Debug\net5.0-windows\school.AddParent.resources
 E:\work\school\school\obj\Debug\net5.0-windows\school.PostControl.resources
 E:\work\school\school\obj\Debug\net5.0-windows\school.addEmployer.resources
 E:\work\school\school\obj\Debug\net5.0-windows\school.TimeTable.resources
+E:\work\school\school\obj\Debug\net5.0-windows\school.addMark.resources
+E:\work\school\school\obj\Debug\net5.0-windows\school.addEvent.resources

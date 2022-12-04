@@ -18,6 +18,7 @@ namespace school
     {
         int idOfPerson = 0;
         Form1 aunt;
+        int lvl;
         //private List<List<int>> Levels;
         private bool getTrueTime(string str)
         {
@@ -74,7 +75,7 @@ namespace school
         public admin(Form1 form1, int level, int id)
         {
             InitializeComponent();
-            
+            lvl = level;
             aunt = form1;
             idOfPerson = id;
             //_tab.SelectedTab = Journal;
@@ -122,7 +123,7 @@ namespace school
             workWithDB workWithDB = new workWithDB();
             DataSet peoples = workWithDB.GetPeoples(students_id_tb.Texts, student_classs_tb.Texts, student_fio_tb.Texts,
                 GetStateOfBoolFilter(students_starosta_chb, rjToggleButton2), GetStateOfBoolFilter(students_SOP_chb, rjToggleButton1));
-            if (peoples != null)
+            if (peoples != null && peoples.Tables[0].Rows.Count != 0)
             {
                 students_dgv.DataSource = peoples.Tables[0];
                 students_dgv.Columns[0].ReadOnly = true;
@@ -225,7 +226,7 @@ namespace school
             foreach (var v in getSelectedId(tt_dgv, "Код"))
             {
                 workWithDB w = new workWithDB();
-                w.removeUser(v);
+                w.removeSomethink(v,"Расписание", "Код расписания");
             }
             tt_filter_b_Click(null, null);
         }
@@ -234,7 +235,7 @@ namespace school
             foreach (var v in getSelectedId(J_DGV, "Код"))
             {
                 workWithDB w = new workWithDB();
-                w.removeUser(v);
+                w.removeSomethink(v, "Журнал", "Код оценки");
             }
             journal_b_go_Click(null, null);
         }
@@ -329,7 +330,7 @@ namespace school
             
             List<People> children = new List<People>();
             children = workWithDB.getClassForParrent(idOfPerson);
-            if(children.Count >= 1)
+            if(children.Count >= 1 && lvl <3)
             {
                 List<DataTable> tables = new List<DataTable>();
                 DataTable result = new DataTable();
@@ -352,6 +353,11 @@ namespace school
                     j_people_tb.Texts, j_teacher_tb.Texts, dateFrom.Value, dateTo.Value,
                     j_mark_from_tb.Texts, j_mark_to_tb.Texts, idOfPerson.ToString()).Tables[0];
             }
+            for(int i = 0; i<J_DGV.ColumnCount; i++)
+            {
+                J_DGV.Columns[i].ReadOnly = true;
+            }
+            J_DGV.Columns["Оценка"].ReadOnly = false;
         }
 
         private void rjTextBox1__TextChanged(object sender, EventArgs e)
@@ -473,6 +479,7 @@ namespace school
         }
         private void _tab_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if(_tab.SelectedTab.Equals(admin_tab))
             {
                 workWithDB workWithDB = new workWithDB();
@@ -554,7 +561,11 @@ namespace school
             workWithDB workWithDB = new workWithDB();
             DataSet events = workWithDB.getEvents(e_name_tb.Texts, e_place_tb.Texts, e_id_tb.Texts, (e_time_frob_tb.Texts == "") ? "00:00:00" : e_time_frob_tb.Texts,
                  (e_time_to_tb.Texts == "") ? "23:59:59" : e_time_to_tb.Texts, events_data_from.Value, events_data_to.Value);
-            if (events != null) e_dgv.DataSource = events.Tables[0];
+            if (events.Tables[0].Rows.Count > 0)
+            {
+                e_dgv.DataSource = events.Tables[0];
+                e_dgv.Columns["Код мероприятия"].ReadOnly = true;
+            }
         }
 
         private void e_time_frob_tb__TextChanged(object sender, EventArgs e)
@@ -605,5 +616,76 @@ namespace school
             e_dgv.DataSource = result;
         }
         #endregion
+
+        private void tt_add_b_Click(object sender, EventArgs e)
+        {
+            TimeTable tt = new TimeTable();
+            tt.ShowDialog();
+        }
+
+        private void tt_edit_b_Click(object sender, EventArgs e)
+        {
+            if(getSelectedRows(tt_dgv).Count == 1)
+            {
+                foreach (var v in getSelectedRows(tt_dgv))
+                {
+                    TimeTable tt = new TimeTable(v);
+                    tt.ShowDialog();
+                }
+            }
+            
+        }
+
+        private void j_edit_b_Click(object sender, EventArgs e)
+        {
+            foreach (var v in getSelectedRows(J_DGV))
+            {
+                workWithDB w = new workWithDB();
+                if (w.updateMark(v.Cells["Код"].Value.ToString(), v.Cells["Оценка"].Value.ToString())) MessageBox.Show("Оценка изменена!");
+            }
+        }
+
+        private void employers_edit_b_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void j_add_b_Click(object sender, EventArgs e)
+        {
+            addMark am = new addMark(idOfPerson);
+            am.ShowDialog();
+        }
+
+        private void e_add_b_Click(object sender, EventArgs e)
+        {
+            addEvent ae = new addEvent();
+            ae.ShowDialog();
+        }
+
+        private void e_edit_b_Click(object sender, EventArgs e)
+        {
+            foreach (var v in getSelectedRows(e_dgv))
+            {
+                workWithDB w = new workWithDB();
+                if (w.updateEvent(v.Cells["Код мероприятия"].Value.ToString(), 
+                    v.Cells["название"].Value.ToString(),
+                    v.Cells["Дата"].Value.ToString(), 
+                    v.Cells["Время"].Value.ToString(), 
+                    v.Cells["Продолжительность"].Value.ToString(), 
+                    v.Cells["Место"].Value.ToString()))
+                    
+                    MessageBox.Show("Мероприятие изменено!");
+            }
+        }
+
+        private void e_del_b_Click(object sender, EventArgs e)
+        {
+            foreach (var v in getSelectedId(e_dgv, "Код мероприятия"))
+            {
+                workWithDB w = new workWithDB();
+                w.removeSomethink(v, "Мероприятия", "Код мероприятия");
+            }
+            rjButton2_Click(null,null);
+        }
     }
 }

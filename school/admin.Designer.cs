@@ -225,7 +225,7 @@ namespace school
             this._tab.Controls.Add(this.Events);
             this._tab.Controls.Add(this.admin_tab);
             this._tab.Cursor = System.Windows.Forms.Cursors.Default;
-            this._tab.Location = new System.Drawing.Point(12, 12);
+            this._tab.Location = new System.Drawing.Point(13, 11);
             this._tab.Name = "_tab";
             this._tab.SelectedIndex = 0;
             this._tab.Size = new System.Drawing.Size(791, 467);
@@ -1327,6 +1327,7 @@ namespace school
             this.employers_edit_b.Text = "Редактировать";
             this.employers_edit_b.TextColor = System.Drawing.Color.White;
             this.employers_edit_b.UseVisualStyleBackColor = false;
+            this.employers_edit_b.Click += new System.EventHandler(this.employers_edit_b_Click);
             // 
             // employers_add_b
             // 
@@ -1635,6 +1636,7 @@ namespace school
             this.tt_edit_b.Text = "Редактировать";
             this.tt_edit_b.TextColor = System.Drawing.Color.White;
             this.tt_edit_b.UseVisualStyleBackColor = false;
+            this.tt_edit_b.Click += new System.EventHandler(this.tt_edit_b_Click);
             // 
             // tt_add_b
             // 
@@ -1654,6 +1656,7 @@ namespace school
             this.tt_add_b.Text = "Добавить";
             this.tt_add_b.TextColor = System.Drawing.Color.WhiteSmoke;
             this.tt_add_b.UseVisualStyleBackColor = false;
+            this.tt_add_b.Click += new System.EventHandler(this.tt_add_b_Click);
             // 
             // tt_dgv
             // 
@@ -1755,7 +1758,7 @@ namespace school
             this.dateTo.SkinColor = System.Drawing.Color.Green;
             this.dateTo.TabIndex = 29;
             this.dateTo.TextColor = System.Drawing.Color.White;
-            this.dateTo.Value = new System.DateTime(2022, 11, 29, 10, 55, 4, 0);
+            this.dateTo.Value = new System.DateTime(2022, 12, 5, 0, 0, 0, 0);
             // 
             // dateFrom
             // 
@@ -1975,6 +1978,7 @@ namespace school
             this.j_edit_b.Text = "Редактировать";
             this.j_edit_b.TextColor = System.Drawing.Color.White;
             this.j_edit_b.UseVisualStyleBackColor = false;
+            this.j_edit_b.Click += new System.EventHandler(this.j_edit_b_Click);
             // 
             // j_add_b
             // 
@@ -1994,6 +1998,7 @@ namespace school
             this.j_add_b.Text = "Добавить";
             this.j_add_b.TextColor = System.Drawing.Color.WhiteSmoke;
             this.j_add_b.UseVisualStyleBackColor = false;
+            this.j_add_b.Click += new System.EventHandler(this.j_add_b_Click);
             // 
             // J_DGV
             // 
@@ -2081,6 +2086,7 @@ namespace school
             this.events_data_to.SkinColor = System.Drawing.Color.Green;
             this.events_data_to.TabIndex = 33;
             this.events_data_to.TextColor = System.Drawing.Color.White;
+            this.events_data_to.Value = new System.DateTime(2022, 12, 5, 14, 18, 0, 0);
             // 
             // events_data_from
             // 
@@ -2288,6 +2294,7 @@ namespace school
             this.e_del_b.Text = "Удалить";
             this.e_del_b.TextColor = System.Drawing.Color.White;
             this.e_del_b.UseVisualStyleBackColor = false;
+            this.e_del_b.Click += new System.EventHandler(this.e_del_b_Click);
             // 
             // e_edit_b
             // 
@@ -2307,6 +2314,7 @@ namespace school
             this.e_edit_b.Text = "Редактировать";
             this.e_edit_b.TextColor = System.Drawing.Color.White;
             this.e_edit_b.UseVisualStyleBackColor = false;
+            this.e_edit_b.Click += new System.EventHandler(this.e_edit_b_Click);
             // 
             // e_add_b
             // 
@@ -2326,9 +2334,12 @@ namespace school
             this.e_add_b.Text = "Добавить";
             this.e_add_b.TextColor = System.Drawing.Color.WhiteSmoke;
             this.e_add_b.UseVisualStyleBackColor = false;
+            this.e_add_b.Click += new System.EventHandler(this.e_add_b_Click);
             // 
             // e_dgv
             // 
+            this.e_dgv.AllowUserToAddRows = false;
+            this.e_dgv.AllowUserToDeleteRows = false;
             this.e_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.e_dgv.GridColor = System.Drawing.SystemColors.Info;
             this.e_dgv.Location = new System.Drawing.Point(0, 0);

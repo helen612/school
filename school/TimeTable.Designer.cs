@@ -30,11 +30,11 @@ namespace school
         private void InitializeComponent()
         {
             this.cb_day = new System.Windows.Forms.ComboBox();
-            this.tb_idMark = new CustomControls.RJControls.RJTextBox();
-            this.сb_ring = new System.Windows.Forms.ComboBox();
+            this.tb_idTT = new CustomControls.RJControls.RJTextBox();
+            this.cb_ring = new System.Windows.Forms.ComboBox();
             this.cb_class = new System.Windows.Forms.ComboBox();
             this.cb_item = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cb_cabinet = new System.Windows.Forms.ComboBox();
             this.b_add_or_change = new CustomControls.RJControls.RJButton();
             this.tb_idTeach = new CustomControls.RJControls.RJTextBox();
             this.SuspendLayout();
@@ -54,42 +54,42 @@ namespace school
             this.cb_day.TabIndex = 19;
             this.cb_day.Text = "День";
             // 
-            // tb_idMark
+            // tb_idTT
             // 
-            this.tb_idMark.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_idMark.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.tb_idMark.BorderFocusColor = System.Drawing.Color.RoyalBlue;
-            this.tb_idMark.BorderRadius = 0;
-            this.tb_idMark.BorderSize = 2;
-            this.tb_idMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_idMark.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_idMark.Location = new System.Drawing.Point(13, 13);
-            this.tb_idMark.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_idMark.Multiline = false;
-            this.tb_idMark.Name = "tb_idMark";
-            this.tb_idMark.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tb_idMark.PasswordChar = false;
-            this.tb_idMark.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tb_idMark.PlaceholderText = "id расписания";
-            this.tb_idMark.Size = new System.Drawing.Size(258, 33);
-            this.tb_idMark.TabIndex = 20;
-            this.tb_idMark.Texts = "";
-            this.tb_idMark.UnderlinedStyle = false;
+            this.tb_idTT.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_idTT.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.tb_idTT.BorderFocusColor = System.Drawing.Color.RoyalBlue;
+            this.tb_idTT.BorderRadius = 0;
+            this.tb_idTT.BorderSize = 2;
+            this.tb_idTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_idTT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_idTT.Location = new System.Drawing.Point(13, 13);
+            this.tb_idTT.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_idTT.Multiline = false;
+            this.tb_idTT.Name = "tb_idTT";
+            this.tb_idTT.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tb_idTT.PasswordChar = false;
+            this.tb_idTT.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tb_idTT.PlaceholderText = "id расписания";
+            this.tb_idTT.Size = new System.Drawing.Size(258, 33);
+            this.tb_idTT.TabIndex = 20;
+            this.tb_idTT.Texts = "";
+            this.tb_idTT.UnderlinedStyle = false;
             // 
-            // сb_ring
+            // cb_ring
             // 
-            this.сb_ring.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.сb_ring.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.сb_ring.FormattingEnabled = true;
-            this.сb_ring.Items.AddRange(new object[] {
+            this.cb_ring.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cb_ring.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cb_ring.FormattingEnabled = true;
+            this.cb_ring.Items.AddRange(new object[] {
             "Не выбрано",
             "Мужской",
             "Женский"});
-            this.сb_ring.Location = new System.Drawing.Point(13, 92);
-            this.сb_ring.Name = "сb_ring";
-            this.сb_ring.Size = new System.Drawing.Size(120, 28);
-            this.сb_ring.TabIndex = 21;
-            this.сb_ring.Text = "Урок";
+            this.cb_ring.Location = new System.Drawing.Point(13, 92);
+            this.cb_ring.Name = "cb_ring";
+            this.cb_ring.Size = new System.Drawing.Size(120, 28);
+            this.cb_ring.TabIndex = 21;
+            this.cb_ring.Text = "Урок";
             // 
             // cb_class
             // 
@@ -121,20 +121,20 @@ namespace school
             this.cb_item.TabIndex = 23;
             this.cb_item.Text = "Предмет";
             // 
-            // comboBox5
+            // cb_cabinet
             // 
-            this.comboBox5.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.comboBox5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.cb_cabinet.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cb_cabinet.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cb_cabinet.FormattingEnabled = true;
+            this.cb_cabinet.Items.AddRange(new object[] {
             "Не выбрано",
             "Мужской",
             "Женский"});
-            this.comboBox5.Location = new System.Drawing.Point(151, 131);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(120, 28);
-            this.comboBox5.TabIndex = 25;
-            this.comboBox5.Text = "Кабинет";
+            this.cb_cabinet.Location = new System.Drawing.Point(151, 131);
+            this.cb_cabinet.Name = "cb_cabinet";
+            this.cb_cabinet.Size = new System.Drawing.Size(120, 28);
+            this.cb_cabinet.TabIndex = 25;
+            this.cb_cabinet.Text = "Кабинет";
             // 
             // b_add_or_change
             // 
@@ -153,6 +153,7 @@ namespace school
             this.b_add_or_change.Text = "Добавить";
             this.b_add_or_change.TextColor = System.Drawing.Color.White;
             this.b_add_or_change.UseVisualStyleBackColor = false;
+            this.b_add_or_change.Click += new System.EventHandler(this.b_add_or_change_Click);
             // 
             // tb_idTeach
             // 
@@ -183,11 +184,11 @@ namespace school
             this.ClientSize = new System.Drawing.Size(285, 231);
             this.Controls.Add(this.tb_idTeach);
             this.Controls.Add(this.b_add_or_change);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.cb_cabinet);
             this.Controls.Add(this.cb_item);
             this.Controls.Add(this.cb_class);
-            this.Controls.Add(this.сb_ring);
-            this.Controls.Add(this.tb_idMark);
+            this.Controls.Add(this.cb_ring);
+            this.Controls.Add(this.tb_idTT);
             this.Controls.Add(this.cb_day);
             this.Name = "TimeTable";
             this.Text = "Расписание";
@@ -198,11 +199,11 @@ namespace school
         #endregion
 
         private System.Windows.Forms.ComboBox cb_day;
-        private CustomControls.RJControls.RJTextBox tb_idMark;
-        private System.Windows.Forms.ComboBox сb_ring;
+        private CustomControls.RJControls.RJTextBox tb_idTT;
+        private System.Windows.Forms.ComboBox cb_ring;
         private System.Windows.Forms.ComboBox cb_class;
         private System.Windows.Forms.ComboBox cb_item;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cb_cabinet;
         private CustomControls.RJControls.RJButton b_add_or_change;
         private CustomControls.RJControls.RJTextBox tb_idTeach;
     }
