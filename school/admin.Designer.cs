@@ -89,6 +89,7 @@ namespace school
             this.FIO_tb = new CustomControls.RJControls.RJTextBox();
             this.empl_tb = new CustomControls.RJControls.RJTextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.rjButton4 = new CustomControls.RJControls.RJButton();
             this.rjButton1 = new CustomControls.RJControls.RJButton();
             this.ClassRuk_b = new CustomControls.RJControls.RJButton();
             this.more_one_stavka_b = new CustomControls.RJControls.RJButton();
@@ -136,10 +137,10 @@ namespace school
             this.Events = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.rjDatePicker4 = new school.RJDatePicker();
-            this.rjDatePicker5 = new school.RJDatePicker();
+            this.ev_to_filtr_cb = new System.Windows.Forms.CheckBox();
+            this.ev_from_filtr_cb = new System.Windows.Forms.CheckBox();
+            this.events_data_to = new school.RJDatePicker();
+            this.events_data_from = new school.RJDatePicker();
             this.e_time_to_tb = new CustomControls.RJControls.RJTextBox();
             this.e_time_frob_tb = new CustomControls.RJControls.RJTextBox();
             this.e_place_tb = new CustomControls.RJControls.RJTextBox();
@@ -163,7 +164,6 @@ namespace school
             this.admin_edit_b = new CustomControls.RJControls.RJButton();
             this.admin_add_b = new CustomControls.RJControls.RJButton();
             this.admin_dgv = new System.Windows.Forms.DataGridView();
-            this.rjButton4 = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.students_dgv)).BeginInit();
             this._tab.SuspendLayout();
             this.students.SuspendLayout();
@@ -1178,6 +1178,25 @@ namespace school
             this.tabPage4.Text = "Доп. возможности";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // rjButton4
+            // 
+            this.rjButton4.BackColor = System.Drawing.Color.Green;
+            this.rjButton4.BackgroundColor = System.Drawing.Color.Green;
+            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton4.BorderRadius = 10;
+            this.rjButton4.BorderSize = 0;
+            this.rjButton4.FlatAppearance.BorderSize = 0;
+            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjButton4.ForeColor = System.Drawing.Color.White;
+            this.rjButton4.Location = new System.Drawing.Point(6, 148);
+            this.rjButton4.Name = "rjButton4";
+            this.rjButton4.Size = new System.Drawing.Size(180, 29);
+            this.rjButton4.TabIndex = 16;
+            this.rjButton4.Text = "Назначить классного рук";
+            this.rjButton4.TextColor = System.Drawing.Color.White;
+            this.rjButton4.UseVisualStyleBackColor = false;
+            // 
             // rjButton1
             // 
             this.rjButton1.BackColor = System.Drawing.Color.Green;
@@ -2012,10 +2031,10 @@ namespace school
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage5.Controls.Add(this.checkBox1);
-            this.tabPage5.Controls.Add(this.checkBox2);
-            this.tabPage5.Controls.Add(this.rjDatePicker4);
-            this.tabPage5.Controls.Add(this.rjDatePicker5);
+            this.tabPage5.Controls.Add(this.ev_to_filtr_cb);
+            this.tabPage5.Controls.Add(this.ev_from_filtr_cb);
+            this.tabPage5.Controls.Add(this.events_data_to);
+            this.tabPage5.Controls.Add(this.events_data_from);
             this.tabPage5.Controls.Add(this.e_time_to_tb);
             this.tabPage5.Controls.Add(this.e_time_frob_tb);
             this.tabPage5.Controls.Add(this.e_place_tb);
@@ -2029,51 +2048,53 @@ namespace school
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Фильтр";
             // 
-            // checkBox1
+            // ev_to_filtr_cb
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 184);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 35;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ev_to_filtr_cb.AutoSize = true;
+            this.ev_to_filtr_cb.Location = new System.Drawing.Point(6, 184);
+            this.ev_to_filtr_cb.Name = "ev_to_filtr_cb";
+            this.ev_to_filtr_cb.Size = new System.Drawing.Size(15, 14);
+            this.ev_to_filtr_cb.TabIndex = 35;
+            this.ev_to_filtr_cb.UseVisualStyleBackColor = true;
+            this.ev_to_filtr_cb.CheckedChanged += new System.EventHandler(this.ev_to_filtr_cb_CheckedChanged);
             // 
-            // checkBox2
+            // ev_from_filtr_cb
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(7, 154);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 34;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.ev_from_filtr_cb.AutoSize = true;
+            this.ev_from_filtr_cb.Location = new System.Drawing.Point(7, 154);
+            this.ev_from_filtr_cb.Name = "ev_from_filtr_cb";
+            this.ev_from_filtr_cb.Size = new System.Drawing.Size(15, 14);
+            this.ev_from_filtr_cb.TabIndex = 34;
+            this.ev_from_filtr_cb.UseVisualStyleBackColor = true;
+            this.ev_from_filtr_cb.CheckedChanged += new System.EventHandler(this.ev_from_filtr_cb_CheckedChanged);
             // 
-            // rjDatePicker4
+            // events_data_to
             // 
-            this.rjDatePicker4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjDatePicker4.BorderSize = 0;
-            this.rjDatePicker4.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker4.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker4.Location = new System.Drawing.Point(28, 177);
-            this.rjDatePicker4.MinimumSize = new System.Drawing.Size(4, 25);
-            this.rjDatePicker4.Name = "rjDatePicker4";
-            this.rjDatePicker4.Size = new System.Drawing.Size(158, 25);
-            this.rjDatePicker4.SkinColor = System.Drawing.Color.Green;
-            this.rjDatePicker4.TabIndex = 33;
-            this.rjDatePicker4.TextColor = System.Drawing.Color.White;
+            this.events_data_to.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.events_data_to.BorderSize = 0;
+            this.events_data_to.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.events_data_to.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.events_data_to.Location = new System.Drawing.Point(28, 177);
+            this.events_data_to.MinimumSize = new System.Drawing.Size(4, 25);
+            this.events_data_to.Name = "events_data_to";
+            this.events_data_to.Size = new System.Drawing.Size(158, 25);
+            this.events_data_to.SkinColor = System.Drawing.Color.Green;
+            this.events_data_to.TabIndex = 33;
+            this.events_data_to.TextColor = System.Drawing.Color.White;
             // 
-            // rjDatePicker5
+            // events_data_from
             // 
-            this.rjDatePicker5.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjDatePicker5.BorderSize = 0;
-            this.rjDatePicker5.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker5.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker5.Location = new System.Drawing.Point(28, 147);
-            this.rjDatePicker5.MinimumSize = new System.Drawing.Size(4, 25);
-            this.rjDatePicker5.Name = "rjDatePicker5";
-            this.rjDatePicker5.Size = new System.Drawing.Size(157, 25);
-            this.rjDatePicker5.SkinColor = System.Drawing.Color.Green;
-            this.rjDatePicker5.TabIndex = 32;
-            this.rjDatePicker5.TextColor = System.Drawing.Color.White;
+            this.events_data_from.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.events_data_from.BorderSize = 0;
+            this.events_data_from.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.events_data_from.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.events_data_from.Location = new System.Drawing.Point(28, 147);
+            this.events_data_from.MinimumSize = new System.Drawing.Size(4, 25);
+            this.events_data_from.Name = "events_data_from";
+            this.events_data_from.Size = new System.Drawing.Size(157, 25);
+            this.events_data_from.SkinColor = System.Drawing.Color.Green;
+            this.events_data_from.TabIndex = 32;
+            this.events_data_from.TextColor = System.Drawing.Color.White;
             // 
             // e_time_to_tb
             // 
@@ -2160,6 +2181,7 @@ namespace school
             this.rjButton2.Text = "Выполнить";
             this.rjButton2.TextColor = System.Drawing.Color.White;
             this.rjButton2.UseVisualStyleBackColor = false;
+            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click);
             // 
             // e_name_tb
             // 
@@ -2234,6 +2256,7 @@ namespace school
             this.e_get_members_b.Text = "Участники";
             this.e_get_members_b.TextColor = System.Drawing.Color.White;
             this.e_get_members_b.UseVisualStyleBackColor = false;
+            this.e_get_members_b.Click += new System.EventHandler(this.e_get_members_b_Click);
             // 
             // ev_gp
             // 
@@ -2500,25 +2523,6 @@ namespace school
             this.admin_dgv.Size = new System.Drawing.Size(570, 439);
             this.admin_dgv.TabIndex = 2;
             // 
-            // rjButton4
-            // 
-            this.rjButton4.BackColor = System.Drawing.Color.Green;
-            this.rjButton4.BackgroundColor = System.Drawing.Color.Green;
-            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton4.BorderRadius = 10;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(6, 148);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(180, 29);
-            this.rjButton4.TabIndex = 16;
-            this.rjButton4.Text = "Назначить классного рук";
-            this.rjButton4.TextColor = System.Drawing.Color.White;
-            this.rjButton4.UseVisualStyleBackColor = false;
-            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2695,10 +2699,10 @@ namespace school
         private CustomControls.RJControls.RJTextBox rjTextBox2;
         private CustomControls.RJControls.RJTextBox e_time_to_tb;
         private CustomControls.RJControls.RJTextBox e_time_frob_tb;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private RJDatePicker rjDatePicker4;
-        private RJDatePicker rjDatePicker5;
+        private System.Windows.Forms.CheckBox ev_to_filtr_cb;
+        private System.Windows.Forms.CheckBox ev_from_filtr_cb;
+        private RJDatePicker events_data_to;
+        private RJDatePicker events_data_from;
         private System.Windows.Forms.TabPage admin_tab;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView admin_dgv;

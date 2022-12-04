@@ -1221,7 +1221,121 @@ namespace school
             
             return result;
         }
+        public DataSet getEvents(string name, string place, string id, string timefrom, string timeTo, DateTime dateFrom, DateTime dateTo)
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getEvents", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@name", "%" + name + "%");
+            SqlParameter p2 = new SqlParameter("@place", "%" + place + "%");
+            SqlParameter p3 = new SqlParameter("@id", (id == "") ? "%" : id);
+            SqlParameter p4 = new SqlParameter("@timeFrom", timefrom);
+            SqlParameter p5 = new SqlParameter("@timeTo", timeTo);
+            SqlParameter p6 = new SqlParameter("@dateFrom", dateFrom);
+            SqlParameter p7 = new SqlParameter("@dateTo", dateTo);
+            command.Parameters.Add(p1);
+            command.Parameters.Add(p2);
+            command.Parameters.Add(p3);
+            command.Parameters.Add(p4);
+            command.Parameters.Add(p5);
+            command.Parameters.Add(p6);
+            command.Parameters.Add(p7);
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
 
+                // Заполняем Dataset
+                adapter.Fill(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
+        public DataSet getMembersEvent(string id)
+        {
+            DataSet result = new DataSet();
+            SqlCommand command = new SqlCommand("getMembersEvent", workWithDB.sqlConnection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@id", id.ToString());
+            command.Parameters.Add(p1);
+
+            try
+            {
+                sqlConnection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Заполняем Dataset
+                adapter.Fill(result);
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            return result;
+        }
+
+        public Dictionary<string, string> getDays()
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            sqlConnection.Open();
+
+            SqlDataReader sqlDataReader = null;
+            SqlCommand command = new SqlCommand($"getDays", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                sqlDataReader = command.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    d.Add(sqlDataReader["название"].ToString(), sqlDataReader["Код дня"].ToString());
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlDataReader.Close();
+            sqlConnection.Close();
+            return d;
+        }
+        public Dictionary<string, string> getRings()
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            sqlConnection.Open();
+
+            SqlDataReader sqlDataReader = null;
+            SqlCommand command = new SqlCommand($"getRings", workWithDB.sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                sqlDataReader = command.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    d.Add(sqlDataReader["Номер урока"].ToString(), sqlDataReader["Код звонка"].ToString());
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlDataReader.Close();
+            sqlConnection.Close();
+            return d;
+        }
     }
 
 }

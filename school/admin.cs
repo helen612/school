@@ -548,5 +548,62 @@ namespace school
             addEmployer ae = new addEmployer();
             ae.ShowDialog();
         }
+        #region Events
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            DataSet events = workWithDB.getEvents(e_name_tb.Texts, e_place_tb.Texts, e_id_tb.Texts, (e_time_frob_tb.Texts == "") ? "00:00:00" : e_time_frob_tb.Texts,
+                 (e_time_to_tb.Texts == "") ? "23:59:59" : e_time_to_tb.Texts, events_data_from.Value, events_data_to.Value);
+            if (events != null) e_dgv.DataSource = events.Tables[0];
+        }
+
+        private void e_time_frob_tb__TextChanged(object sender, EventArgs e)
+        {
+            if (getTrueTime(e_time_frob_tb.Texts))
+            {
+                e_time_frob_tb.ForeColor = Color.Red;
+            }
+            else
+                e_time_frob_tb.ForeColor = Color.Green;
+        }
+
+        private void e_time_to_tb__TextChanged(object sender, EventArgs e)
+        {
+            if (getTrueTime(e_time_to_tb.Texts))
+            {
+                e_time_to_tb.ForeColor = Color.Red;
+            }
+            else
+                e_time_to_tb.ForeColor = Color.Green;
+        }
+
+        private void ev_from_filtr_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!ev_from_filtr_cb.Checked) events_data_from.Value = new DateTime(DateTime.Now.Year - 5, DateTime.Now.Month, DateTime.Now.Day);
+            else events_data_from.Value = DateTime.Now;
+        }
+
+        private void ev_to_filtr_cb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!ev_from_filtr_cb.Checked) events_data_to.Value = DateTime.Now;
+        }
+
+        private void e_get_members_b_Click(object sender, EventArgs e)
+        {
+            List<DataTable> tables = new List<DataTable>();
+            DataTable result = new DataTable();
+            workWithDB workWithDB = new workWithDB();
+            foreach (var v in getSelectedId(e_dgv, "Код мероприятия"))
+            {
+                DataSet members = workWithDB.getMembersEvent(v.ToString());
+                tables.Add(members.Tables[0]);
+            }
+            foreach (var v in tables)
+            {
+                result.Merge(v);
+            }
+            e_dgv.DataSource = result;
+        }
+        #endregion
     }
 }
