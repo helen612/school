@@ -1411,11 +1411,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\work\\school\\school\\school.csproj",
+      "projectUniqueName": "C:\\myDoc\\Новая папка\\school\\school\\school.csproj",
       "projectName": "school",
-      "projectPath": "E:\\work\\school\\school\\school.csproj",
+      "projectPath": "C:\\myDoc\\Новая папка\\school\\school\\school.csproj",
       "packagesPath": "C:\\Users\\crazy\\.nuget\\packages\\",
-      "outputPath": "E:\\work\\school\\school\\obj\\",
+      "outputPath": "C:\\myDoc\\Новая папка\\school\\school\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\crazy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1479,7 +1479,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

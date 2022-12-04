@@ -7,6 +7,9 @@
     <Compile Update="addEvent.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AddMemberEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="AddParent.cs">
       <SubType>Form</SubType>
     </Compile>

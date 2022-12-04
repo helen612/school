@@ -164,6 +164,7 @@ namespace school
             this.admin_edit_b = new CustomControls.RJControls.RJButton();
             this.admin_add_b = new CustomControls.RJControls.RJButton();
             this.admin_dgv = new System.Windows.Forms.DataGridView();
+            this.add_member = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.students_dgv)).BeginInit();
             this._tab.SuspendLayout();
             this.students.SuspendLayout();
@@ -2236,6 +2237,7 @@ namespace school
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.add_member);
             this.tabPage6.Controls.Add(this.e_get_members_b);
             this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
@@ -2535,6 +2537,26 @@ namespace school
             this.admin_dgv.Size = new System.Drawing.Size(570, 439);
             this.admin_dgv.TabIndex = 2;
             // 
+            // add_member
+            // 
+            this.add_member.BackColor = System.Drawing.Color.Green;
+            this.add_member.BackgroundColor = System.Drawing.Color.Green;
+            this.add_member.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.add_member.BorderRadius = 10;
+            this.add_member.BorderSize = 0;
+            this.add_member.FlatAppearance.BorderSize = 0;
+            this.add_member.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add_member.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.add_member.ForeColor = System.Drawing.Color.White;
+            this.add_member.Location = new System.Drawing.Point(6, 46);
+            this.add_member.Name = "add_member";
+            this.add_member.Size = new System.Drawing.Size(180, 59);
+            this.add_member.TabIndex = 13;
+            this.add_member.Text = "Добавить участника";
+            this.add_member.TextColor = System.Drawing.Color.White;
+            this.add_member.UseVisualStyleBackColor = false;
+            this.add_member.Click += new System.EventHandler(this.add_member_Click);
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2737,5 +2759,6 @@ namespace school
         private CustomControls.RJControls.RJTextBox people_tb_children;
         private CustomControls.RJControls.RJButton rjButton1;
         private CustomControls.RJControls.RJButton rjButton4;
+        private CustomControls.RJControls.RJButton add_member;
     }
 }

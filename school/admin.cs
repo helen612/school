@@ -693,5 +693,11 @@ namespace school
             workWithDocs wd = new workWithDocs();
             wd.CreateStatementsChange("example", new Person(1,"Кригин","Кирилл","Андреевич","Мужской",DateTime.Now,"+375(33)640-43-35","crazy2tedoglove@gmail.com","Сотрудник","Слово",""));
         }
+
+        private void add_member_Click(object sender, EventArgs e)
+        {
+            AddMemberEvent am = new AddMemberEvent();
+            am.ShowDialog();
+        }
     }
 }

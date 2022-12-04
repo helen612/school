@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zOfAaWCmRIXxmVSPW13IpUVIX+T+WeyOpoA+t1kDhPtR7kNegLFzMGVgYqD8TvQ20AM3l+TYuC5gziiCul/UNw==",
+  "dgSpecHash": "cZIiG0pmOsXzHY4C4cWj3rMelxVAMxQqY2ShXRTy3Hn/T+ozbfYgN1+Ap/QWZbO1kK2DEkn/KGCgxlst8gqpjg==",
   "success": true,
-  "projectFilePath": "E:\\work\\school\\school\\school.csproj",
+  "projectFilePath": "C:\\myDoc\\Новая папка\\school\\school\\school.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\crazy\\.nuget\\packages\\epplus\\6.1.1\\epplus.6.1.1.nupkg.sha512",
     "C:\\Users\\crazy\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",

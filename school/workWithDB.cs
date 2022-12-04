@@ -14,7 +14,7 @@ namespace school
 {
     class workWithDB
     {
-        public static string connectionString = @"Data Source=SUPERBIG-PC\SQLEXPRESS;Initial Catalog=1;Integrated Security=True";
+        public static string connectionString = @"Data Source=ALENA-PC\SQLEXPRESS;Initial Catalog=1;Integrated Security=True";
         //public static string connectionString = @"Data Source=ALENA-PC\SQLEXPRESS;Initial Catalog=1;Integrated Security=True";
         public static SqlConnection sqlConnection;
         public workWithDB()
@@ -1594,6 +1594,102 @@ namespace school
             }
             sqlConnection.Close();
 
+            return result;
+        }
+
+        public string getFIOPerson(string id)
+        {
+            string result = "";
+            string getFio = $"select Person.LastName + ' ' + SUBSTRING(Person.Name, 1, 1) + '. ' + SUBSTRING(Person.Patronymic, 1,1) as ФИО, " +
+                "Person.position as Статус " +
+                "from Person " +
+                $"where Person.id like {id}";
+            SqlCommand command = new SqlCommand(getFio, workWithDB.sqlConnection);
+            SqlDataReader sqlDataReader = null;
+
+            try
+            {
+
+                sqlConnection.Open();
+                sqlDataReader = command.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    result = sqlDataReader["ФИО"].ToString() + " " + sqlDataReader["Статус"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            sqlConnection.Close();
+
+            return result;
+        }
+        public string getNameEvent(string id)
+        {
+            string result = "";
+            string getFio = $"select Мероприятия.название as Мероприятие " +
+                "from Мероприятия " +
+                $"where Мероприятия.[Код мероприятия] like {id} ";
+            SqlCommand command = new SqlCommand(getFio, workWithDB.sqlConnection);
+            SqlDataReader sqlDataReader = null;
+
+            try
+            {
+
+                sqlConnection.Open();
+                sqlDataReader = command.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    result = sqlDataReader["Мероприятие"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = null;
+            }
+            sqlConnection.Close();
+
+            return result;
+        }
+        public bool addMemberEvent(int idMember, int idEvent)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand($"insert into [Участиники мероприятия] values ({idMember}, {idEvent})", workWithDB.sqlConnection);
+            try
+            {
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = true;
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            sqlConnection.Close();
+            return result;
+        }
+        public bool delMemberEvent(int idMember, int idEvent)
+        {
+            bool result = false;
+            SqlCommand command = new SqlCommand($"delete from [Участиники мероприятия] where [Участиники мероприятия].[Код мероприятия] = {idEvent} and [Участиники мероприятия].[код участника] = {idMember}", workWithDB.sqlConnection);
+            try
+            {
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+                result = true;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
+            sqlConnection.Close();
             return result;
         }
     }

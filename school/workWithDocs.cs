@@ -46,12 +46,79 @@ namespace school
                 workSheet.Cells["A12:I12"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
                 workSheet.Cells["A13:I13"].Merge = true;
-                workSheet.Cells["A13:I13"].Value = "по учебной работе класса 1А";
+                workSheet.Cells["A13:I13"].Value = "за период от 04.11.2022 по 04.12.2022";
                 workSheet.Cells["A13:I13"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                //
 
                 #endregion
 
+                #region кол-во
+                workSheet.Cells["A17:I17"].Merge = true;
+                workSheet.Cells["A17:I17"].Value = "Количество учащихся в классе: 21";
+                workSheet.Cells["A17:I17"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                
+                workSheet.Cells["A19:I20"].Merge = true;
+                workSheet.Cells["A19:I20"].Value = "За установленный период в классе 1А среди учеников можно выделить список отличников:";
+                workSheet.Cells["A19:I20"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                workSheet.Cells["A19:I20"].Style.WrapText = true;
+
+                workSheet.Cells["A21:I22"].Merge = true;
+                workSheet.Cells["A21:I22"].Value = "Отличники";
+                workSheet.Cells["A21:I22"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                workSheet.Cells["A24:I24"].Merge = true;
+                workSheet.Cells["A24:I24"].Value = "Среди отстающих:";
+                workSheet.Cells["A24:I24"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                workSheet.Cells["A25:I26"].Merge = true;
+                workSheet.Cells["A25:I26"].Value = "отстающие";
+                workSheet.Cells["A25:I26"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                workSheet.Cells["A28:I28"].Merge = true;
+                workSheet.Cells["A28:I28"].Value = "Самый активный участник мероприятий: ";
+                workSheet.Cells["A28:I28"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                workSheet.Cells["A29:I29"].Merge = true;
+                workSheet.Cells["A29:I29"].Value = "Активист";
+                workSheet.Cells["A29:I29"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                #endregion
+
+                #region подписи
+                workSheet.Cells["A34:D34"].Merge = true;
+                workSheet.Cells["A34:D34"].Value = "Классный руководитель";
+                workSheet.Cells["A34:D34"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+
+                workSheet.Cells["C35:E35"].Merge = true;
+                workSheet.Cells["C35:E35"].Value = "Пашкевич Е. Е.";
+                workSheet.Cells["C35:E35"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+
+                workSheet.Cells["A35:B35"].Merge = true;
+                workSheet.Cells["A35:B35"].Value = "";
+                workSheet.Cells["A35:B35"].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                
+                workSheet.Cells["A37:D37"].Merge = true;
+                workSheet.Cells["A37:D37"].Value = "Директор";
+                workSheet.Cells["A37:D37"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+
+                workSheet.Cells["C38:E38"].Merge = true;
+                workSheet.Cells["C38:E38"].Value = "Ястремский П. Г.";
+                workSheet.Cells["C38:E38"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+
+                workSheet.Cells["A38:B38"].Merge = true;
+                workSheet.Cells["A38:B38"].Value = "";
+                workSheet.Cells["A38:B38"].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+
+                workSheet.Cells["F34:I38"].Merge = true;
+                workSheet.Cells["F34:I38"].Value = "Дата формирования отчёта 04.12.2022";
+                workSheet.Cells["F34:I38"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                workSheet.Cells["F34:I38"].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+
+                workSheet.Cells["F34:I38"].Style.WrapText = true;
+
+
+                #endregion
+
+                /*
                 #region body
                 workSheet.Cells["B12:J12"].Merge = true;
                 workSheet.Cells["B12:J12"].Value = "Заявление";
@@ -96,6 +163,7 @@ namespace school
 
                 #endregion
                 //fileContent = package.GetAsByteArray();
+                */
                 try
                 {
                     package.SaveAs(new FileInfo(docName + ".xlsx"));

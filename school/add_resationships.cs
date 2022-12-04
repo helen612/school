@@ -35,5 +35,23 @@ namespace school
             workWithDB w = new workWithDB();
             w.removeConnection(tb_id_parrent.Texts, tb_id_child.Texts);
         }
+
+        private void tb_id_parrent__TextChanged(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            if (tb_id_parrent.Texts != "")
+            {
+                l_rs_p.Text = workWithDB.getFIOPerson(tb_id_parrent.Texts);
+            }
+        }
+
+        private void tb_id_child__TextChanged(object sender, EventArgs e)
+        {
+            workWithDB workWithDB = new workWithDB();
+            if (tb_id_child.Texts != "")
+            {
+                l_rs_s.Text = workWithDB.getFIOPerson(tb_id_child.Texts);
+            }
+        }
     }
 }

@@ -33,6 +33,7 @@ namespace school
             this.b_addMark = new CustomControls.RJControls.RJButton();
             this.cb_scObj = new System.Windows.Forms.ComboBox();
             this.tb_newMark = new CustomControls.RJControls.RJTextBox();
+            this.l_mark_s = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tb_idStudier
@@ -56,6 +57,7 @@ namespace school
             this.tb_idStudier.TabIndex = 0;
             this.tb_idStudier.Texts = "";
             this.tb_idStudier.UnderlinedStyle = false;
+            this.tb_idStudier._TextChanged += new System.EventHandler(this.tb_idStudier__TextChanged);
             // 
             // b_addMark
             // 
@@ -67,7 +69,7 @@ namespace school
             this.b_addMark.FlatAppearance.BorderSize = 0;
             this.b_addMark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b_addMark.ForeColor = System.Drawing.Color.White;
-            this.b_addMark.Location = new System.Drawing.Point(4, 121);
+            this.b_addMark.Location = new System.Drawing.Point(4, 136);
             this.b_addMark.Name = "b_addMark";
             this.b_addMark.Size = new System.Drawing.Size(168, 32);
             this.b_addMark.TabIndex = 1;
@@ -81,7 +83,7 @@ namespace school
             this.cb_scObj.BackColor = System.Drawing.Color.CornflowerBlue;
             this.cb_scObj.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cb_scObj.FormattingEnabled = true;
-            this.cb_scObj.Location = new System.Drawing.Point(4, 90);
+            this.cb_scObj.Location = new System.Drawing.Point(4, 105);
             this.cb_scObj.Name = "cb_scObj";
             this.cb_scObj.Size = new System.Drawing.Size(168, 25);
             this.cb_scObj.TabIndex = 19;
@@ -95,7 +97,7 @@ namespace school
             this.tb_newMark.BorderSize = 2;
             this.tb_newMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_newMark.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_newMark.Location = new System.Drawing.Point(4, 52);
+            this.tb_newMark.Location = new System.Drawing.Point(4, 67);
             this.tb_newMark.Margin = new System.Windows.Forms.Padding(4);
             this.tb_newMark.Multiline = false;
             this.tb_newMark.Name = "tb_newMark";
@@ -108,11 +110,21 @@ namespace school
             this.tb_newMark.Texts = "";
             this.tb_newMark.UnderlinedStyle = false;
             // 
+            // l_mark_s
+            // 
+            this.l_mark_s.AutoSize = true;
+            this.l_mark_s.Location = new System.Drawing.Point(4, 48);
+            this.l_mark_s.Name = "l_mark_s";
+            this.l_mark_s.Size = new System.Drawing.Size(47, 15);
+            this.l_mark_s.TabIndex = 21;
+            this.l_mark_s.Text = "Ученик";
+            // 
             // addMark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(185, 173);
+            this.ClientSize = new System.Drawing.Size(185, 180);
+            this.Controls.Add(this.l_mark_s);
             this.Controls.Add(this.tb_newMark);
             this.Controls.Add(this.cb_scObj);
             this.Controls.Add(this.b_addMark);
@@ -120,6 +132,7 @@ namespace school
             this.Name = "addMark";
             this.Text = "Выставление оценки";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -129,5 +142,6 @@ namespace school
         private CustomControls.RJControls.RJButton b_addMark;
         private System.Windows.Forms.ComboBox cb_scObj;
         private CustomControls.RJControls.RJTextBox tb_newMark;
+        private System.Windows.Forms.Label l_mark_s;
     }
 }
